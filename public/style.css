@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #D9D9D9;
+    background-color: white;
 }
 
 
@@ -63,11 +63,12 @@ body {
 
 .motto {
     width: 100%;
-    height: 55vh;
+    height: 37vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../public/img/background3.jpg') center/cover;
+    /* background: url('../public/img/background3.jpg') center/cover; */
+    
 }
 
 h1 {
@@ -76,7 +77,7 @@ h1 {
     text-decoration: none;
     font-size: 2rem;
     font-weight: 600;
-    color: #fff;
+    color: black;
 }
 
 
@@ -191,6 +192,7 @@ img.arrow {
     height: 30px;
     width: auto;
     margin: auto;
+    
 }
 
 
@@ -209,29 +211,29 @@ button:hover {
     color: white;
     text-align: left;
     padding-top: 20px;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
 }
 
-.footer .font_1 {
-    font-size: 22px;
-}
 
 .footer p {
-    padding: 10px 50px;
-
+    padding: 10px 60px;
     font-size: 22px;
 }
 
-p.gmail {
-    display: inline;
-    font-size: 17px;
+.footer .link {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-decoration: underline;
+    color: white;
+    margin-top: 15px;
 }
 
 p.copyright {
     font-size: 15px;
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
 }
 
 
@@ -240,9 +242,13 @@ p.copyright {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: #F8F8F8;
     padding: 10px;
-    border-radius: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 30px;
+    box-shadow:  0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+    margin-top: 40px;
 }
 
 .search-inputs {
@@ -251,8 +257,20 @@ p.copyright {
     margin-bottom: 10px;
 }
 
+.input-group label {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 7px;
+    font-size: 12px;
+    color: black;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
 .search-field {
     margin-right: 10px;
+    background-color: #F8F8F8;
 }
 
 .search-input {
@@ -260,6 +278,13 @@ p.copyright {
     margin-right: 5px;
     border-radius: 50px;
     border: none;
+}
+.separator {
+    width: 1.5px;
+    height: 50px;
+    background-color: #ccc;
+    margin: 0 27px;
+    margin-top: 20px;
 }
 
 .search-input[type="date"],
@@ -270,12 +295,20 @@ p.copyright {
 .search-button {
     background-color: black;
     color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 50px;   
+    padding-left: 23px;
+    padding-right: 23px;
+    height: 53px;   
     border: none;
     border-radius: 50px;
     font-size: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+    box-shadow:  0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+#location {
+    width: 210px;
 }
 .vehicle-icons {
     display: flex;
@@ -285,18 +318,18 @@ p.copyright {
 .vehicle-icons label {
     display: flex;
     align-items: center;
-        margin: 0 5px;
-        cursor: pointer;
-    }
+    margin: 0 5px;
+    cursor: pointer;
+}
     
 .vehicle-icons img {
     margin-top: 10px;
-    margin-bottom: 15px;
-    width: 53px;
+    margin-bottom: 12px;
+    width: 55px;
     height: auto;
     opacity: 0.4;
     transition: opacity 0.3s;
-    margin-right: 15px;
+    margin-right: 17px;
 }
     
 .vehicle-icons input[type="radio"] {
