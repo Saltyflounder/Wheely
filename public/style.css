@@ -42,7 +42,7 @@ body {
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 15px;
+    padding-top: 5px;
     margin-right: 20px;
 }
 
@@ -129,7 +129,7 @@ h1 {
     position: relative;
     padding-bottom: 6rem;
 }
- 
+
 .card p {
     padding: 0.5rem 1rem;
 }
@@ -339,4 +339,236 @@ p.copyright {
 .vehicle-icons input[type="radio"]:checked + label img,
 .vehicle-icons label:hover img {
     opacity: 1;
+}
+
+/* Heart Button for main */
+.heart-btn {
+    display: none;
+}
+
+.heart-btn + .heart-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 25px;
+    background-image: url('img/heart-shaped-like.png');
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.heart-btn:checked + .heart-icon {
+    background-image: url('img/heart-shaped-like-filled.png');
+}
+
+/* heart button for results */
+.carousel-slide .heart-btn + .heart-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 25px;
+    background-image: url('img/black-line-heart.png');
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.carousel-slide .heart-btn:checked + .heart-icon {
+    background-image: url('img/black-line-heart-filled.png');
+}
+
+/* Results page card */
+
+/* .carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+} */
+
+/* .carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-sizing: border-box;
+} */
+
+/* .carousel-prev,
+.carousel-next {
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+} */
+
+/* .carousel-prev:focus,
+.carousel-next:focus {
+    outline: none;
+} */
+/*  */
+/*  */
+
+
+/* 
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    position: relative;
+    display: flex;
+    max-width: 57vw;
+    margin-left: 50px; 
+    margin-right: 50px;
+    margin-bottom: 25px;
+    padding-bottom: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.carousel-slide img {
+    width: 40%; 
+    height: 170px; 
+    object-fit: cover;
+    flex-shrink: 0; 
+    border-radius: 10px 0 0 10px;
+
+}
+
+.carousel-slide .card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex: 1;
+}
+
+
+
+.carousel-slide .price {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 20px 20px;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+.carousel-slide p.location {
+    position: absolute;
+    left: 200px;
+    top: 38.35px;
+}
+
+.carousel-slide p.rate {
+    
+    left: 50px;
+    font-size: 15px;
+    top: 40px;
+}
+
+.carousel-slide p.vehicle{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.carousel-slide p {
+    padding: 0.5rem 1rem;
+}
+ */
+
+ /* Results page card */
+ .main-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+
+}
+
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    position: relative;
+    display: flex;
+    max-width: 57vw;
+    margin-left: 100px; 
+    margin-right: 50px;
+    margin-bottom: 25px;
+    padding-bottom: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    
+.carousel-slide img {
+     width: 40%; 
+    height: 170px; 
+    object-fit: cover;
+    flex-shrink: 0; 
+    border-radius: 10px 0 0 10px;
+}
+
+.carousel-slide .card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex: 1;
+}
+
+.carousel-slide .vehicle {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.carousel-slide .details {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.carousel-slide .rate {
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.carousel-slide .location {
+    font-size: 1rem;
+    color: #555;
+    
+}
+
+.carousel-slide .price {
+    font-size: 23px;
+    font-weight: normal;
+    margin: 0.5rem 0 0 auto;
+    align-self: flex-end;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 20px 20px;
+}
+.map-container {
+    width: 600px;
+    height: auto;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+
+.google-map {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-section.result { 
+    margin-left: 100px;
 }
