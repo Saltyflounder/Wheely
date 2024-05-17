@@ -1,1 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.top-bar {
+    width: 100%;
+    background-color: #1a202c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.upload-link {
+    color: white;
+    text-decoration: none;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="email"], input[type="password"], input[type="text"], input[type="tel"], input[type="file"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button.google-btn {
+    background-color: #db4437;
+}
+
+button.apple-btn {
+    background-color: #333;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
