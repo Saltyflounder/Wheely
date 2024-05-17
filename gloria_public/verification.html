@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">Wheely</div>
+        <a href="#" class="upload-link">Upload my vehicle</a>
+        <div class="profile-icon"></div>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2>Sign-up</h2>
+            <form id="verification-form">
+                <input type="tel" id="phone-number" placeholder="Phone number" required>
+                <input type="text" id="license-id" placeholder="Driver's license ID #" required>
+                <label for="license-photo">Driver's license photo</label>
+                <input type="file" id="license-photo" accept="image/*" required>
+                <label for="profile-image">Profile image</label>
+                <input type="file" id="profile-image" accept="image/*" required>
+                <button type="submit">Sign-up</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
