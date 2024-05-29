@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isDown) return;
         e.preventDefault();
         const y = e.pageY - carousel.offsetTop;
-        const walk = (y - startY) * 3; //scroll-fast
+        const walk = (y - startY) * 3;
         carousel.scrollTop = scrollTop - walk;
     });
 });

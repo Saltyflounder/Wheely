@@ -89,9 +89,24 @@ h1 {
 
  /* Artist recommendation card*/
 .section-2-container {
+
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-left: 65px;
+    margin-right: 65px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: auto;
+    max-width: 1250px;
+    min-width: 410px;
+}
+
+.section-2-container::-webkit-scrollbar {
+    display: none;
+}
+
+.section-2-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .card-container {
@@ -117,15 +132,18 @@ h1 {
 }
  
 .column-2 {
+    display: flex;
     flex: 1;
     flex-grow: 1;
     margin-bottom: 90px;
+    align-items: flex-start;
 }
  
 .card {
+    /* min-width: calc(85% / 3); */
     flex: 0 0 250px;
-    flex-shrink: none;
-    flex-grow: none;
+    /* flex-shrink: none;
+    flex-grow: none; */
     margin: 0.5rem;
     background-color: white;
     border-radius: 10px;
@@ -196,9 +214,15 @@ img.arrow {
     height: 30px;
     width: auto;
     margin: auto;
-    
+    cursor: pointer;
+    user-select: none;
 }
-
+.left-arrow {
+    transform: translateY(-50%);
+}
+.right-arrow {
+    transform: translateY(-50%);
+}
 
 /* change color of every button when hover */
 button:hover {
@@ -409,10 +433,10 @@ p.copyright {
 .carousel-slide {
     position: relative;
     display: flex;
-    max-width: 57vw;
+    max-width: 60vw;
     min-width: 400px;
-    margin-left: 100px; 
-    margin-right: 50px;
+    /* margin-left: 100px;  */
+    /* margin-right: 50px; */
     margin-bottom: 25px;
     padding-bottom: 0;
     background-color: #fff;
@@ -469,7 +493,7 @@ p.copyright {
     right: 0px;
     padding: 20px 20px;
 }
-.map-container {
+/* .map-container {
     width: 600px;
     height: auto;
     margin-right: 100px;
@@ -480,16 +504,22 @@ p.copyright {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .cards-section {
     margin-bottom: 100px;
 }
 .title-section.result { 
-    margin-left: 100px;
+    /* margin-left: 100px; */
     margin-top: 50px;
 }
 
+.resultss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
 
 
 .image-grid {
@@ -799,3 +829,4 @@ button:hover {
   .payment-container {
     margin-right: 105px;
   }
+
