@@ -66,12 +66,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for cancel button
     document.getElementById('cancelButton').addEventListener('click', function () {
-        // Redirect or perform other cancel action
-        alert('Operation canceled.');
+        // Show confirmation dialog
+        const confirmCancel = confirm('Are you sure you want to cancel? Any unsaved information will be lost.');
+        if (confirmCancel) {
+            // Redirect to home page
+            window.location.href = 'main.html';
+        }
     });
 
     // Initialize dropdowns
     populateYearDropdown();
     populateMakeDropdown();
     populateOdometerDropdown();
-});
+  });
