@@ -1,0 +1,20 @@
+<!DOCTYPE HTML> 
+<html>
+    <body>
+        <h1> hi </h1>
+        <ul id="data-list"></ul>
+    </body>
+
+    <script>
+        async function fetchData() {
+          const response = await fetch('http://localhost:5000');
+          const data = await response.json();
+          const dataList = document.getElementById('data-list');
+          data.forEach(item => {
+            console.log(item)
+          });
+        }
+    
+        fetchData();
+      </script>
+</html>

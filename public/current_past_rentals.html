@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+
+<head>
+    <title>Current and Past Rentals</title>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Troy Lu">
+    <meta name="description" content="Shows current and past rental history">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>Wheely - Current and Past Rentals</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cur_past_style.css">
+
+    <!-- normalize.css for cross-browser stuff -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- include required fonts -->
+    <!-- Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+        <!-- <li><a href="index.html" class="logo">Wheely</a></li> -->
+        <li><a href="index.html"><img class="logo" src="img/logo+name.png" alt="logo"></a></li>
+        <div class="navbar">
+            <li class="upload-button"><a href="event.html">Upload my vehicle</a></li>
+            <li><a href="#">Log-In</a></li>
+        </div>
+    </nav>
+    
+    <div class="side-bar">
+        <h1>Filters</h1>
+        <div class="inside-bar">
+            <h3>Rental Type</h3>
+            <div class="option">
+                <input type="checkbox">
+                <label>Rented</label>
+            </div>
+            
+            <div class="option">
+                <input type="checkbox">
+                <label>Rented Out</label>
+            </div>
+
+            <h3>Vehicle Type</h3>
+            <div class="option">
+                <input type="checkbox">
+                <label>Sedan</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Van</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Sports</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Jeep</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Other</label>
+            </div>
+
+            <h3>Rental Date</h3>
+            <div class="option">
+                <input type="checkbox">
+                <label>Last 30 Days</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Last 90 Days</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Last Year</label>
+            </div>
+
+            <div class="option">
+                <input type="checkbox">
+                <label>Any: </label><input type="text" id="user-input-form"><label> Days</label>
+            </div>
+            <h3>Price</h3>
+            <div class="slider">
+                <hr>
+                <p style=float:left>$0/day</p>
+                <p style=float:right>$100/day</p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="main-title">
+            <h1>View Rentals</h1>
+        </div>
+
+        <section class="cards-section">
+            <div class="main-content">
+                <div class="carousel-container">
+                    <div class="carousel-wrapper car-container">
+                        <div class="carousel-slide div1">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-1" class="heart-btn">
+                            <label for="heart-btn-1" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div2">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div3">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-3" class="heart-btn">
+                            <label for="heart-btn-3" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div4">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div5">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+                        <div class="carousel-slide div6">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div7">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div8">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+
+                        <div class="carousel-slide div9">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <div class="card-content">
+                                <p class="vehicle">Tesla Model 3 2023</p>
+                                <div class="details">
+                                    <p class="rate">★4.97</p>
+                                    <p class="location">Bellevue, WA</p>
+                                </div>
+                                <p class="price">$55/day</p>
+                            </div>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</HTML>

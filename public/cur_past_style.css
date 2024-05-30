@@ -1,0 +1,107 @@
+.side-bar {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    border-right-style: solid;
+    border-color: #CDCDCD;
+    border-right-width: 1px;
+}
+
+.side-bar h1 {
+    text-align: center;
+}
+
+.side-bar h3 {
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.inside-bar {
+    border-radius: 15px;
+    margin: 5%;
+    height: 60%;
+    border-style: solid;
+    border-color: #CDCDCD;
+    box-shadow: 0 4px 8px 0 #CDCDCD, 0 6px 10px 0 #CDCDCD;
+}
+
+.inside-bar h3 {
+    text-align: center;
+}
+
+.option {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+#user-input-form {
+    width: 50px
+}
+
+.slider hr {
+    width: 50%;
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+}
+
+.slider p {
+    font-size: 15px;
+    display: inline;
+    margin-top: 3%;
+    margin-left: 16%;
+    margin-right: 16%;
+}
+
+.car-container {
+    margin-top: 5%;
+    margin-left: 13%;
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 3fr) 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.div1 {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.div2 {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.div3 {
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.div4 {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.div5 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.div6 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.div7 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.div8 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.div9 {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.main-title {
+    font-size: 30px;
+    text-align: center;
+}
