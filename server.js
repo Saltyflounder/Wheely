@@ -11,7 +11,11 @@ mongoose.connect('mongodb+srv://troylu6:8T09AO7DvyS8wuHL@wheely.xms60gm.mongodb.
 
 const carSchema = {
     car_id: Number, 
-    car_location: String, 
+    parking_name: String, 
+    parking_street: String, 
+    parking_city: String, 
+    parking_state: String, 
+    parking_zip: String,
     car_VIN: String, 
     car_before_1981: Number, 
     car_year: Number, 
