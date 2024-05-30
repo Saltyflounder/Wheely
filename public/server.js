@@ -25,7 +25,7 @@ const Listing = mongoose.model('Listing', listingSchema)
 
 app.get('/', (req, res) => {
     Listing.find({}, function(listings) {
-        res.sendFile(__dirname + '/main.html', {listignName: listings})
+        res.sendFile(__dirname + '/main.html', {listingName: listings})
     })
 })
 
