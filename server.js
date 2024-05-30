@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const ejs = require('ejs');
-const { kStringMaxLength } = require('buffer');
 
 app.set('view engine', 'ejs');
 
@@ -38,7 +37,28 @@ const carSchema = {
     car_rating: Number
 };
 
+const listingSchema = {
+    listing_id: Number, 
+    available_dates: String, 
+    available_time: String, 
+    date_rented: String, 
+    date_returned: String, 
+    driven_mi: Number, 
+    car_id: Number, 
+    renter: String, 
+    owner: String, 
+    renter_name: String, 
+    owner_name: String
+}
+
+/* const reviewSchema = {
+    review_id: String, 
+    review_star: Number, 
+} */
+
 const CarList = mongoose.model('cars', carSchema);
+const ListingList = mongoose.model('listings', listingSchema);
+// const ReviewList = mongoose.model('reviews', reviewSchema);
 
 
 app.get('/', (req, res) => {
@@ -50,5 +70,26 @@ app.get('/', (req, res) => {
         console.log(err)
     })
 });
+
+
+app.get('/cars/:id', (req, res) => {
+    const carId = req.params.id;
+    Promise.all([
+        CarList.findOne({ car_id: carId }).exec(),
+        ListingList.find({ car_id: carId }).exec()
+        //,ReviewList.find({ car_id: carId }).exec()
+    ]).then(([car, listings, reviews]) => {
+        if (car) {
+            res.render('detailed_info', { car, ListingList: listings}); // , ReviewList: reviews});
+        }
+    }).catch(err => {
+        console.log(err);
+    });
+});
+
+
+
+
 app.use('/public', express.static('public'));
+
 app.listen(5000, () => console.log(`Server running on port 5000`));
