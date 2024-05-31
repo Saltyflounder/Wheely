@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Junhee Park">
+        <meta name="description" content="Main Page of the Wheely">
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+        <title>Wheely</title>
+        
+        <!-- normalize.css for cross-browser stuff -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- include required fonts -->
+        <!-- Montserrat -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+        <!--Link to my css -->
+        <link rel="stylesheet" href="../public/style_main_results.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="top-nav">
+            <!-- <li><a href="index.html" class="logo">Wheely</a></li> -->
+            <li><a href="main.ejs"><img class="logo" src= "./public/img/logo+name.png" alt="logo"></a></li>
+            <div class="navbar">
+                <li class="upload-button"><a href="../public/signin.html">Upload my vehicle</a></li>
+                <li><a href="#">Log-In</a></li>
+            </div>
+        </nav>
+        <!-- Header Elements with Searchbar -->
+        <header>
+            <div class="motto">
+                <div class="searchbar">
+                    <div class="search-container">
+                        <div class="search-inputs">
+                            <div class="input-group">
+                                <label for="location">Where</label>
+                                <input class="search-input search-field" type="text" placeholder="City, address, hotel, etc." aria-label="Location" id="location">
+                            </div>
+                            <div class="separator"></div>
+                            <div class="input-group">
+                                <label>From</label>
+                                <input class="search-input search-field" type="date" aria-label="Start Date" value="" min="" max="">
+                                <input class="search-input search-field" type="time" aria-label="Start Time" value="" step="900">
+                            </div>
+                            <div class="separator"></div>
+                            <div class="input-group">
+                                <label>Until</label>
+                                <input class="search-input search-field" type="date" aria-label="End Date" value="" min="" max="">
+                                <input class="search-input search-field" type="time" aria-label="End Time" value="" step="900">
+                            </div>
+                            <button class="search-button" type="submit">Search</button>
+                        </div>
+                        <div class="vehicle-icons">
+                            <input type="radio" name="vehicle" id="sedan" value="sedan">
+                            <label for="sedan"><img src="./public/img/sedan.png" alt="Sedan"></label>
+                      
+                            <input type="radio" name="vehicle" id="suv" value="suv">
+                            <label for="suv"><img src="./public/img/suv.png" alt="SUV"></label>
+                      
+                            <input type="radio" name="vehicle" id="van" value="van">
+                            <label for="van"><img src="./public/img/van.png" alt="Van"></label>
+                      
+                            <input type="radio" name="vehicle" id="sports" value="sports">
+                            <label for="sports"><img src="./public/img/sports.png" alt="Sports car"></label>
+                      
+                            <input type="radio" name="vehicle" id="jeep" value="jeep">
+                            <label for="jeep"><img src="./public/img/jeep.png" alt="Jeep"></label>
+                      
+                            <input type="radio" name="vehicle" id="electric" value="electric">
+                            <label for="electric"><img src="./public/img/electric.png" alt="Electric car"></label>
+                      
+                            <input type="radio" name="vehicle" id="truck" value="truck">
+                            <label for="truck"><img src="./public/img/truck.png" alt="Truck"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Recommendation Cards -->
+        <main>
+            <div class="container">
+                <section class="column-1">
+                    <h1>Recommended Vehicles</h1>
+                </section>
+                <section class="column-2">
+                    <img id="left-arrow" class="arrow left-arrow" src="./public/img/left-arrow.png" alt="left next">
+                    <div class="section-2-container">
+                        <!-- <img class="arrow left-arrow" src="img/left-arrow.png" alt="left next"> -->
+                        <!-- Card 1 -->
+                        <div class="card" onClick = "location.href='/cars/1001'">
+                            <i class="fa fa-heart heart-icon"></i>
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[0].car_model%></p>
+                            <p class="rate">★<%= carList[0].car_rating%></p>
+                            <p class="location"><%= carList[0].parking_city%>, <%= carList[0].parking_state%></p>
+                            <p class="price">$<%= carList[0].car_price_per_day%>/day</p>
+                            <input type="checkbox" id="heart-btn-1" class="heart-btn">
+                            <label for="heart-btn-1" class="heart-icon"></label>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="card" onClick = "location.href='/cars/1002'">
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[1].car_model%></p>
+                            <p class="rate">★<%= carList[1].car_rating%></p>
+                            <p class="location"><%= carList[1].parking_city%>, <%= carList[1].parking_state%></p>
+                            <p class="price">$<%= carList[1].car_price_per_day%>/day</p>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="card" onClick = "location.href='/cars/1003'">
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[2].car_model%></p>
+                            <p class="rate">★<%= carList[2].car_rating%></p>
+                            <p class="location"><%= carList[2].parking_city%>, <%= carList[2].parking_state%></p>
+                            <p class="price">$<%= carList[2].car_price_per_day%>/day</p>
+                            <input type="checkbox" id="heart-btn-3" class="heart-btn">
+                            <label for="heart-btn-3" class="heart-icon"></label>
+                        </div>
+                       
+                        <div class="card" onClick = "location.href='/cars/1004'">
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[3].car_model%></p>
+                            <p class="rate">★<%= carList[3].car_rating%></p>
+                            <p class="location"><%= carList[3].parking_city%>, <%= carList[3].parking_state%></p>
+                            <p class="price">$<%= carList[3].car_price_per_day%>/day</p>
+                            <input type="checkbox" id="heart-btn-4" class="heart-btn">
+                            <label for="heart-btn-4" class="heart-icon"></label>
+                        </div>
+                        
+                        <div class="card" onClick = "location.href='/cars/1005'">
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[4].car_model%></p>
+                            <p class="rate">★<%= carList[4].car_rating%></p>
+                            <p class="location"><%= carList[4].parking_city%>, <%= carList[4].parking_state%></p>
+                            <p class="price">$<%= carList[4].car_price_per_day%>/day</p>
+                            <input type="checkbox" id="heart-btn-5" class="heart-btn">
+                            <label for="heart-btn-5" class="heart-icon"></label>
+                        </div>
+
+                        <div class="card" onClick = "location.href='/cars/1006'">
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[5].car_model%></p>
+                            <p class="rate">★<%= carList[5].car_rating%></p>
+                            <p class="location"><%= carList[5].parking_city%>, <%= carList[5].parking_state%></p>
+                            <p class="price">$<%= carList[5].car_price_per_day%>/day</p>
+                            <input type="checkbox" id="heart-btn-6" class="heart-btn">
+                            <label for="heart-btn-6" class="heart-icon"></label>
+                        </div>
+                    </div>
+                    <img id="right-arrow" class="arrow right-arrow" src="./public/img/right-arrow.png" alt="right next">
+                </section>
+                
+            </div>
+        </main>
+
+        <!-- Footer with Copyright & Contact Information -->
+        <footer class="footer">
+            <a href="/"><img class="logo" src= "./public/img/logo+name.png" alt="logo"></a>
+            <a href="./public/about-us.html"><p class="link">About Us</p></a>
+            <a href="./public/faq.html"><p class="link">Frequently Asked Questions</p></a>
+            <a href="./public/contact-us.html"><p class="link">Contact Us</p></a>
+            <a href="./public/customer-support.html"><p class="link">Customer Support</p></a>
+            <p class="copyright">&copy; 2024 Wheely</p>
+
+        </footer>
+        <script src="./public/carousel-horizontal.js"></script>
+
+        <script> 
+            function rerouteFunction() {
+                
+            }
+        </script>
+    </body>
+</html>
+
+
