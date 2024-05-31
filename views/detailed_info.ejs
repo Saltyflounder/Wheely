@@ -30,7 +30,7 @@
             <!-- <li><a href="index.html" class="logo">Wheely</a></li> -->
             <li><a href="main.html"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
             <div class="navbar">
-                <li class="upload-button"><a href="event.html">Upload my vehicle</a></li>
+                <li class="upload-button"><a href="/">Upload my vehicle</a></li>
                 <li><a href="#">Log-In</a></li>
             </div>
         </nav>
@@ -147,7 +147,7 @@
                         <!-- Cuts date string from 2024-xx-xx to xx-xx for easier readability-->
                         <p class="date"><%= ListingList[array_val].date_rented.substr(5)%> to <%= ListingList[array_val].date_returned.substr(5)%></p> 
                         <div class="centerButton">
-                            <button class="rent-button">Rent</button>
+                            <button class="rent-button" onClick= "location.href='../public/paypage.html'">Rent</button>
                         </div>
                         <div class="group-column">
                             <p class="cost-day">$<%= car.car_price_per_day%> x 3 days</p>
