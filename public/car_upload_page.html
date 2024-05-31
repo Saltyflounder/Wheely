@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Information</title>
     <link rel="stylesheet" href="../src/car_upload_style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
     <script src="../src/car_upload_index.js" defer></script>
 </head>
 <body>
@@ -29,9 +30,23 @@
         <h1>Car Information</h1>
         <form id="carUploadForm">
             <div class="form-left">
-                <div>
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" required>
+                <div class="location">
+                    <div>
+                        <label for="street">Street:</label>
+                        <input type="text" id="street" required>
+                    </div>
+                    <div>
+                        <label for="city">City:</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div>
+                        <label for="state">State:</label>
+                        <input type="text" id="state" required>
+                    </div>
+                    <div>
+                        <label for="zipCode">Zip Code:</label>
+                        <input type="text" id="zipCode" required>
+                    </div>
                 </div>
                 <div>
                     <label for="vin">VIN:</label>
