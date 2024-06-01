@@ -1,199 +1,249 @@
-    <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name='viewport' content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta name="author" content="Junhee Park">
-            <meta name="description" content="Main Page of the Wheely">
-            <link rel="icon" type="image/png" href="img/favicon.png" />
-            <title>Wheely</title>
-            
-            <!-- normalize.css for cross-browser stuff -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Junhee Park">
+        <meta name="description" content="Main Page of the Wheely">
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+        <title>Wheely</title>
+        
+        <!-- normalize.css for cross-browser stuff -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
 
-            <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
-            <!-- include required fonts -->
-            <!-- Montserrat -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <!-- include required fonts -->
+        <!-- Montserrat -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
-            <!--Link to my css -->
-            <link rel="stylesheet" href="style_main_results.css">
+        <!--Link to my css -->
+        <link rel="stylesheet" href="style_main_results.css">
+        
 
-            <!-- Firebase setup -->
-            <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
-
-        <!-- Add Firebase configuration -->
         <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyDE4-_Cjjr3M1NwH8ylBeoYG0elilisBho",
-            authDomain: "wheely-5af2e.firebaseapp.com",
-            databaseURL: "https://wheely-5af2e-default-rtdb.firebaseio.com",
-            projectId: "wheely-5af2e",
-            storageBucket: "wheely-5af2e.appspot.com",
-            messagingSenderId: "252861264620",
-            appId: "1:252861264620:web:95c600869df0ff97ba2bc9",
-            measurementId: "G-SRHJ0JLJ9V"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        </script>
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
 
-        </head>
-        <body>
-            <!-- Navigation Bar -->
-            <nav class="top-nav">
-                <li><a href="main.html"><img class="logo" src= "img/logo+name.png" alt="logo"></a></li>
-                <div class="navbar">
-                    <li class="upload-button"><a href="car_upload_page.html">Upload my vehicle</a></li>
-                    <li><a href="gloria_public/signin.html">Log-In</a></li>
-                </div>
-            </nav>
-            <!-- Header Elements with Searchbar -->
-            <header>
-                <div class="motto">
-                    <div class="searchbar">
-                        <div class="search-container">
-                            <div class="search-inputs">
-                                <div class="input-group">
-                                    <label for="location">Where</label>
-                                    <input class="search-input search-field" type="text" placeholder="City, address, hotel, etc." aria-label="Location" id="location">
-                                </div>
-                                <div class="separator"></div>
-                                <div class="input-group">
-                                    <label>From</label>
-                                    <input class="search-input search-field" type="date" aria-label="Start Date" value="" min="" max="">
-                                    <input class="search-input search-field" type="time" aria-label="Start Time" value="" step="900">
-                                </div>
-                                <div class="separator"></div>
-                                <div class="input-group">
-                                    <label>Until</label>
-                                    <input class="search-input search-field" type="date" aria-label="End Date" value="" min="" max="">
-                                    <input class="search-input search-field" type="time" aria-label="End Time" value="" step="900">
-                                </div>
-                                <button class="search-button" type="submit">Search</button>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+            // Initialize Firebase
+
+            // TODO: Replace the following with your app's Firebase project configuration
+            // See: https://firebase.google.com/docs/web/learn-more#config-object
+
+          
+            // let storedValue = "Hello, World!";
+
+           
+            // document.addEventListener("DOMContentLoaded", function() {
+            // let outputElement = document.getElementById("output");
+            // outputElement.textContent = storedValue;
+            // });
+            
+           
+        </script>
+    </head>
+    <body>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+        <!-- Navigation Bar -->
+        <nav class="top-nav">
+            <li><a href="main.html"><img class="logo" src= "img/logo+name.png" alt="logo"></a></li>
+            <div class="navbar">
+                <li class="upload-button"><a href="car_upload_page.html">Upload my vehicle</a></li>
+                <li><a href="gloria_public/signin.html">Log-In</a></li>
+            </div>
+        </nav>
+        <!-- Header Elements with Searchbar -->
+        <header>
+            <div class="motto">
+                <div class="searchbar">
+                    <div class="search-container">
+                        <div class="search-inputs">
+                            <div class="input-group">
+                                <label for="location">Where</label>
+                                <input class="search-input search-field" type="text" placeholder="City, address, hotel, etc." aria-label="Location" id="location">
                             </div>
-                            <div class="vehicle-icons">
-                                <input type="radio" name="vehicle" id="sedan" value="sedan">
-                                <label for="sedan"><img src="img/sedan.png" alt="Sedan"></label>
-                        
-                                <input type="radio" name="vehicle" id="suv" value="suv">
-                                <label for="suv"><img src="img/suv.png" alt="SUV"></label>
-                        
-                                <input type="radio" name="vehicle" id="van" value="van">
-                                <label for="van"><img src="img/van.png" alt="Van"></label>
-                        
-                                <input type="radio" name="vehicle" id="sports" value="sports">
-                                <label for="sports"><img src="img/sports.png" alt="Sports car"></label>
-                        
-                                <input type="radio" name="vehicle" id="jeep" value="jeep">
-                                <label for="jeep"><img src="img/jeep.png" alt="Jeep"></label>
-                        
-                                <input type="radio" name="vehicle" id="electric" value="electric">
-                                <label for="electric"><img src="img/electric.png" alt="Electric car"></label>
-                        
-                                <input type="radio" name="vehicle" id="truck" value="truck">
-                                <label for="truck"><img src="img/truck.png" alt="Truck"></label>
+                            <div class="separator"></div>
+                            <div class="input-group">
+                                <label>From</label>
+                                <input class="search-input search-field" type="date" aria-label="Start Date" value="" min="" max="">
+                                <input class="search-input search-field" type="time" aria-label="Start Time" value="" step="900">
                             </div>
+                            <div class="separator"></div>
+                            <div class="input-group">
+                                <label>Until</label>
+                                <input class="search-input search-field" type="date" aria-label="End Date" value="" min="" max="">
+                                <input class="search-input search-field" type="time" aria-label="End Time" value="" step="900">
+                            </div>
+                            <button class="search-button" type="submit">Search</button>
+                        </div>
+                        <div class="vehicle-icons">
+                            <input type="radio" name="vehicle" id="sedan" value="sedan">
+                            <label for="sedan"><img src="img/sedan.png" alt="Sedan"></label>
+                      
+                            <input type="radio" name="vehicle" id="suv" value="suv">
+                            <label for="suv"><img src="img/suv.png" alt="SUV"></label>
+                      
+                            <input type="radio" name="vehicle" id="van" value="van">
+                            <label for="van"><img src="img/van.png" alt="Van"></label>
+                      
+                            <input type="radio" name="vehicle" id="sports" value="sports">
+                            <label for="sports"><img src="img/sports.png" alt="Sports car"></label>
+                      
+                            <input type="radio" name="vehicle" id="jeep" value="jeep">
+                            <label for="jeep"><img src="img/jeep.png" alt="Jeep"></label>
+                      
+                            <input type="radio" name="vehicle" id="electric" value="electric">
+                            <label for="electric"><img src="img/electric.png" alt="Electric car"></label>
+                      
+                            <input type="radio" name="vehicle" id="truck" value="truck">
+                            <label for="truck"><img src="img/truck.png" alt="Truck"></label>
                         </div>
                     </div>
                 </div>
-            </header>
-            <!-- Recommendation Cards -->
-            <main>
-                <div class="container">
-                    <section class="column-1">
-                        <h1>Recommendation</h1>
-                    </section>
-                    <section class="column-2">
-                        <img id="left-arrow" class="arrow left-arrow" src="img/left-arrow.png" alt="left next">
-                        <div class="section-2-container">
-                            <!-- <img class="arrow left-arrow" src="img/left-arrow.png" alt="left next"> -->
-                            <!-- Card 1 -->
-                            <div class="card">
-                                <i class="fa fa-heart heart-icon"></i>
-                                <img src="img/car-picture.png" alt="A picture of car">
-                                <p class="vehicle">Tesla Model 3 2023</p>
-                                <p class="rate">★4.97</p>
-                                <p class="location">Bellevue, WA</p>
-                                <p class="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-1" class="heart-btn">
-                                <label for="heart-btn-1" class="heart-icon"></label>
-                            </div>
-                            <!-- Card 2 -->
-                            <div class="card">
-                                <img src="img/car-picture.png" alt="A picture of car">
-                                <p class="vehicle">Tesla Model 3 2023</p>
-                                <p class="rate">★4.97</p>
-                                <p class="location">Bellevue, WA</p>
-                                <p class="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-2" class="heart-btn">
-                                <label for="heart-btn-2" class="heart-icon"></label>
-                            </div>
-                            <!-- Card 3 -->
-                            <div class="card">
-                                <img src="img/car-picture.png" alt="A picture of car">
-                                <p class="vehicle">Tesla Model 3 2023</p>
-                                <p class="rate">★4.97</p>
-                                <p class="location">Bellevue, WA</p>
-                                <p class="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-3" class="heart-btn">
-                                <label for="heart-btn-3" class="heart-icon"></label>
-                            </div>
-                        
-                            <div class="card">
-                                <img src="img/car-picture.png" alt="A picture of car">
-                                <p class="vehicle">Tesla Model 3 2023</p>
-                                <p class="rate">★4.97</p>
-                                <p class="location">Bellevue, WA</p>
-                                <p class="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-4" class="heart-btn">
-                                <label for="heart-btn-4" class="heart-icon"></label>
-                            </div>
-                            
-                            <div class="card">
-                                <img src="img/car-picture.png" alt="A picture of car">
-                                <p class="vehicle">Tesla Model 3 2023</p>
-                                <p class="rate">★4.97</p>
-                                <p class="location">Bellevue, WA</p>
-                                <p class="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-5" class="heart-btn">
-                                <label for="heart-btn-5" class="heart-icon"></label>
-                            </div>
-
-                            <div class="card">
-                                <img src="img/car-picture.png" alt="A picture of car">
-                                <p class="vehicle">Tesla Model 3 2023</p>
-                                <p class="rate">★4.97</p>
-                                <p class="location">Bellevue, WA</p>
-                                <p class="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-6" class="heart-btn">
-                                <label for="heart-btn-6" class="heart-icon"></label>
-                            </div>
+            </div>
+        </header>
+        <!-- Recommendation Cards -->
+        <main>
+            <div class="container">
+                <section class="column-1">
+                    <h1>Recommendation</h1>
+                </section>
+                <section class="column-2">
+                    <img id="left-arrow" class="arrow left-arrow" src="img/left-arrow.png" alt="left next">
+                    <div class="section-2-container">
+                        <!-- <img class="arrow left-arrow" src="img/left-arrow.png" alt="left next"> -->
+                        <!-- Card 1 -->
+                        <div class="card">
+                            <i class="fa fa-heart heart-icon"></i>
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle" id="car_name"></p>
+                            <p class="rate">★4.97</p>
+                            <p class="location">Bellevue, WA</p>
+                            <p class="price">$55/day</p>
+                            <input type="checkbox" id="heart-btn-1" class="heart-btn">
+                            <label for="heart-btn-1" class="heart-icon"></label>
                         </div>
-                        <img id="right-arrow" class="arrow right-arrow" src="img/right-arrow.png" alt="right next">
-                    </section>
-                    
-                </div>
-            </main>
+                        <!-- Card 2 -->
+                        <div class="card">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle">Tesla Model 3 2023</p>
+                            <p class="rate">★4.97</p>
+                            <p class="location">Bellevue, WA</p>
+                            <p class="price">$55/day</p>
+                            <input type="checkbox" id="heart-btn-2" class="heart-btn">
+                            <label for="heart-btn-2" class="heart-icon"></label>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="card">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle">Tesla Model 3 2023</p>
+                            <p class="rate">★4.97</p>
+                            <p class="location">Bellevue, WA</p>
+                            <p class="price">$55/day</p>
+                            <input type="checkbox" id="heart-btn-3" class="heart-btn">
+                            <label for="heart-btn-3" class="heart-icon"></label>
+                        </div>
+                       
+                        <div class="card">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle">Tesla Model 3 2023</p>
+                            <p class="rate">★4.97</p>
+                            <p class="location">Bellevue, WA</p>
+                            <p class="price">$55/day</p>
+                            <input type="checkbox" id="heart-btn-4" class="heart-btn">
+                            <label for="heart-btn-4" class="heart-icon"></label>
+                        </div>
+                        
+                        <div class="card">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle">Tesla Model 3 2023</p>
+                            <p class="rate">★4.97</p>
+                            <p class="location">Bellevue, WA</p>
+                            <p class="price">$55/day</p>
+                            <input type="checkbox" id="heart-btn-5" class="heart-btn">
+                            <label for="heart-btn-5" class="heart-icon"></label>
+                        </div>
 
-            <!-- Footer with Copyright & Contact Information -->
-            <footer class="footer">
-                <a href="main.html"><img class="logo" src= "img/logo+name.png" alt="logo"></a>
-                <a href="about-us.html"><p class="link">About Us</p></a>
-                <a href="faq.html"><p class="link">Frequently Asked Questions</p></a>
-                <a href="contact-us.html"><p class="link">Contact Us</p></a>
-                <a href="customer-support.html"><p class="link">Customer Support</p></a>
-                <p class="copyright">&copy; 2024 Wheely</p>
+                        <div class="card">
+                            <img src="img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle">Tesla Model 3 2023</p>
+                            <p class="rate">★4.97</p>
+                            <p class="location">Bellevue, WA</p>
+                            <p class="price">$55/day</p>
+                            <input type="checkbox" id="heart-btn-6" class="heart-btn">
+                            <label for="heart-btn-6" class="heart-icon"></label>
+                        </div>
+                    </div>
+                    <img id="right-arrow" class="arrow right-arrow" src="img/right-arrow.png" alt="right next">
+                </section>
+                
+            </div>
+        </main>
 
-            </footer>
-            <script src="carousel-horizontal.js"></script>
-            <script src="firebase.js"></script>
-        </body>
-    </html>
+        <!-- Footer with Copyright & Contact Information -->
+        <footer class="footer">
+            <a href="main.html"><img class="logo" src= "img/logo+name.png" alt="logo"></a>
+            <a href="about-us.html"><p class="link">About Us</p></a>
+            <a href="faq.html"><p class="link">Frequently Asked Questions</p></a>
+            <a href="contact-us.html"><p class="link">Contact Us</p></a>
+            <a href="customer-support.html"><p class="link">Customer Support</p></a>
+            <p class="copyright">&copy; 2024 Wheely</p>
 
+        </footer>
+        <script src="carousel-horizontal.js"></script>
+        <script type="module" src=""></script>
 
+        <script> var name = "What's your name?";
+            // import { getDatabase, ref, onValue } from "firebase/database";
+            import { initializeApp } from "firebase/app";
+            // import { getFirestore, collection, getDocs } from "firebase/firestore";
+                    const firebaseConfig = {
+            // ...
+            // The value of `databaseURL` depends on the location of the database
+            databaseURL: "https://wheely-5af2e-default-rtdb.firebaseio.com/",
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const datadb = getFirestore(app);
+
+            async function getData() {
+                try {
+                    const snapshot = await getDocs(collection(datadb, "cars"));
+                    snapshot.forEach((doc) => {
+                        console.log(`${doc.car_drive}`)
+                    });
+                } catch (e) {
+                    console.error("Error", e);
+                }
+            }
+        getData()
+
+            
+            // Initialize Realtime Database and get a reference to the service
+        //     const database = getDatabase(app);
+        //     const carsRef = ref(database, 'cars/1');
+        //     onValue(carsRef, (snapshot) => {
+        //         const carData = snapshot.val();
+        //         console.log(carData);
+
+        // // Update HTML element with the car name
+        //         document.getElementById('car_name').innerHTML = carData.car_model;
+        //     });
+            // var lengthOfName = name.length
+            // document.getElementById('car_name').innerHTML = database['cars'][1]['car_model'];
+        </script>
+
+        <script src="index.js"></script>
+
+        <script>
+        
+        </script>
+    </body>
+</html>
