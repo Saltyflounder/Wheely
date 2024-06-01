@@ -22,7 +22,7 @@ function SignUp() {
                     </form>
                 </div>
             </div>
-            <script src="scripts.js"></script>
+            <script src="../scripts/scripts.js"></script>
         </div>
     );
 }

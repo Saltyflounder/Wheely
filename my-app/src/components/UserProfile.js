@@ -5,17 +5,17 @@ function UserProfile() {
     return (
         <div>
             <nav className="top-nav">
-                <li><a href="index.html"><img className="logo" src="img/logo+name.png" alt="logo" /></a></li>
+                <li><a href="index.html"><img className="logo" src={require("../img/logo+name.png")} alt="logo" /></a></li>
                 <div className="navbar">
                     <li className="menu-button"><a href="menu.html">Menu</a></li>
-                    <li><a href="#"><img className="pfp" src="img/pfp.png" alt="profile icon" /></a></li>
+                    <li><a href="#"><img className="pfp" src={require("../img/pfp.png")} alt="profile icon" /></a></li>
                 </div>
             </nav>
 
             <div className="container">
                 <div className="profile-section">
                     <div className="profile-header">
-                        <img src="img/pfp.png" alt="Profile Picture" />
+                        <img src={require("../img/pfp.png")} alt="Profile Picture" />
                         <div>
                             <h2>Gloria Du
                                 <span>Verified

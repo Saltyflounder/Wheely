@@ -1,9 +1,9 @@
 // import React from 'react';
-import React, { useEffect, useState } from 'react';
-// import './style_main_results.css';
-// import 'normalize.css';
+import React, { useEffect, useState, useRef } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import 'normalize.css';
 import '../styles/style_main_results.css';
+
 import { getData }  from '../scripts/firebase/getData';
 
 function MainPage() {
@@ -31,6 +31,9 @@ function MainPage() {
     let car1 = carModels[0]?.car_model || "No model available";
     let car2 = carModels[1]?.car_model || "No model available";
     let car3 = carModels[2]?.car_model || "No model available";
+    let car4 = carModels[3]?.car_model || "No model available";
+    let car5 = carModels[4]?.car_model || "No model available";
+    let car6 = carModels[5]?.car_model || "No model available";
 
     let list1 = carListings[1]?.car_id || "No model available";
     console.log(list1);
@@ -44,7 +47,7 @@ function MainPage() {
     // console.log(car4)
     // // console.log(a[0]["car_model"]);
     return (
-        <div>
+        <div className="whole">
             <nav className="top-nav">
                 <li><a href="main.html"><img className="logo" src={require("../img/logo+name.png")} alt="logo" /></a></li>
                 <div className="navbar">
@@ -115,7 +118,7 @@ function MainPage() {
                             </div>
                             <div className="card">
                                 <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle"></p>
+                                <p className="vehicle">{car2}</p>
                                 <p className="rate">★4.97</p>
                                 <p className="location">Bellevue, WA</p>
                                 <p className="price">$55/day</p>
@@ -124,7 +127,25 @@ function MainPage() {
                             </div>
                             <div className="card">
                                 <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle"></p>
+                                <p className="vehicle">{car3}</p>
+                                <p className="rate">★4.97</p>
+                                <p className="location">Bellevue, WA</p>
+                                <p className="price">$55/day</p>
+                                <input type="checkbox" id="heart-btn-3" className="heart-btn" />
+                                <label htmlFor="heart-btn-3" className="heart-icon"></label>
+                            </div>
+                            <div className="card">
+                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
+                                <p className="vehicle">{car4}</p>
+                                <p className="rate">★4.97</p>
+                                <p className="location">Bellevue, WA</p>
+                                <p className="price">$55/day</p>
+                                <input type="checkbox" id="heart-btn-3" className="heart-btn" />
+                                <label htmlFor="heart-btn-3" className="heart-icon"></label>
+                            </div>
+                            <div className="card">
+                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
+                                <p className="vehicle">{car5}</p>
                                 <p className="rate">★4.97</p>
                                 <p className="location">Bellevue, WA</p>
                                 <p className="price">$55/day</p>
@@ -144,9 +165,10 @@ function MainPage() {
                 <a href="customer-support.html"><p className="link">Customer Support</p></a>
                 <p className="copyright">&copy; 2024 Wheely</p>
             </footer>
-            <script src="carousel-horizontal.js"></script>
+            <script src="../script/horizontal/carousel-horizontal.js"></script>
         </div>
     );
 }
 
 export default MainPage;
+

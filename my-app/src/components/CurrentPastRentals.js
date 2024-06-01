@@ -6,7 +6,7 @@ function CurrentPastRentals() {
     return (
         <div>
             <nav className="top-nav">
-                <li><a href="index.html"><img className="logo" src="img/logo+name.png" alt="logo" /></a></li>
+                <li><a href="index.html"><img className="logo" src="../img/logo+name.png" alt="logo" /></a></li>
                 <div className="navbar">
                     <li className="upload-button"><a href="event.html">Upload my vehicle</a></li>
                     <li><a href="#">Log-In</a></li>
@@ -84,7 +84,7 @@ function CurrentPastRentals() {
                         <div className="carousel-container">
                             <div className="carousel-wrapper car-container">
                                 <div className="carousel-slide div1">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -98,7 +98,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div2">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -112,7 +112,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div3">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -126,7 +126,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div4">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -140,7 +140,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div5">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -153,7 +153,7 @@ function CurrentPastRentals() {
                                     <label htmlFor="heart-btn-2" className="heart-icon"></label>
                                 </div>
                                 <div className="carousel-slide div6">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -167,7 +167,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div7">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -181,7 +181,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div8">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">
@@ -195,7 +195,7 @@ function CurrentPastRentals() {
                                 </div>
 
                                 <div className="carousel-slide div9">
-                                    <img src="img/car-picture.png" alt="A picture of car" />
+                                    <img src="../img/car-picture.png" alt="A picture of car" />
                                     <div className="card-content">
                                         <p className="vehicle">Tesla Model 3 2023</p>
                                         <div className="details">

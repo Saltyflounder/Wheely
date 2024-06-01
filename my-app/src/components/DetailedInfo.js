@@ -5,7 +5,7 @@ function DetailedInfo() {
     return (
         <div>
             <nav className="top-nav">
-                <li><a href="main.html"><img className="logo" src="img/logo+name.png" alt="logo" /></a></li>
+                <li><a href="main.html"><img className="logo" src={require("../img/logo+name.png")} alt="logo" /></a></li>
                 <div className="navbar">
                     <li className="upload-button"><a href="car_upload_page.html">Upload my vehicle</a></li>
                     <li><a href="gloria_public/signin.html">Log-In</a></li>
@@ -14,11 +14,11 @@ function DetailedInfo() {
 
             <header>
                 <div className="image-grid">
-                    <img className="image-grid-col-2 image-grid-row-2" src="img/car-picture.png" alt="architecture" />
-                    <img src="img/car-picture-1.5.png" alt="car-picture-1.5" />
-                    <img src="img/car-picture-2.png" alt="car-picture-2" />
-                    <img src="img/car-picture-3.png" alt="car-picture-3" />
-                    <img src="img/car-picture-4.png" alt="car-picture-4" />
+                    <img className="image-grid-col-2 image-grid-row-2" src={require("../img/car-picture.png")} alt="architecture" />
+                    <img src={require("../img/car-picture-1.5.png")} alt="car-picture-1.5" />
+                    <img src={require("../img/car-picture-2.png")} alt="car-picture-2" />
+                    <img src={require("../img/car-picture-3.png")} alt="car-picture-3" />
+                    <img src={require("../img/car-picture-4.png")} alt="car-picture-4" />
                 </div>
             </header>
 
@@ -33,7 +33,7 @@ function DetailedInfo() {
                             </div>
                             <div className="separate"></div>
                             <div className="profile-info">
-                                <img src="img/ariel-profile.png" alt="profile image" />
+                                <img src={require("../img/ariel-profile.png")} alt="profile image" />
                                 <div className="text">
                                     <p className="profile-name">Owned by Ariel</p>
                                     <p className="hosting">Hosting for 4 years</p>
@@ -49,7 +49,7 @@ function DetailedInfo() {
                         <section className="review-container">
                             <div className="carousel-container review-cards">
                                 <div className="review-card">
-                                    <img src="img/drake-profile.png" alt="profile image" />
+                                    <img src={require("../img/drake-profile.png")} alt="profile image" />
                                     <div className="text">
                                         <div className="review-header">
                                             <p className="reviewee">Drake</p>
@@ -61,7 +61,7 @@ function DetailedInfo() {
                                 </div>
 
                                 <div className="review-card">
-                                    <img src="img/drake-profile.png" alt="profile image" />
+                                    <img src="../img/drake-profile.png" alt="profile image" />
                                     <div className="text">
                                         <div className="review-header">
                                             <p className="reviewee">Drake</p>
@@ -72,7 +72,7 @@ function DetailedInfo() {
                                     </div>
                                 </div>
                                 <div className="review-card">
-                                    <img src="img/drake-profile.png" alt="profile image" />
+                                    <img src={require("../img/drake-profile.png")} alt="profile image" />
                                     <div className="text">
                                         <div className="review-header">
                                             <p className="reviewee">Drake</p>
@@ -83,7 +83,7 @@ function DetailedInfo() {
                                     </div>
                                 </div>
                                 <div className="review-card">
-                                    <img src="img/drake-profile.png" alt="profile image" />
+                                    <img src={require("../img/drake-profile.png")} alt="profile image" />
                                     <div className="text">
                                         <div className="review-header">
                                             <p className="reviewee">Drake</p>
@@ -94,7 +94,7 @@ function DetailedInfo() {
                                     </div>
                                 </div>
                                 <div className="review-card">
-                                    <img src="img/drake-profile.png" alt="profile image" />
+                                    <img src={require("../img/drake-profile.png")} alt="profile image" />
                                     <div className="text">
                                         <div className="review-header">
                                             <p className="reviewee">Drake</p>
@@ -105,7 +105,7 @@ function DetailedInfo() {
                                     </div>
                                 </div>
                             </div>
-                            <script src="carousel.js"></script>
+                            <script src="../scripts/carousel.js"></script>
                         </section>
                     </div>
                     <section className="payment-container">
@@ -147,12 +147,12 @@ function DetailedInfo() {
                             <button className="review-button" type="submit">Upload</button>
                         </div>
                     </div>
-                    <script src="review-star.js"></script>
+                    <script src="../scripts/review-star.js"></script>
                 </section>
             </main>
 
             <footer className="footer">
-                <a href="main.html"><img className="logo" src="img/logo+name.png" alt="logo" /></a>
+                <a href="main.html"><img className="logo" src={require("../img/logo+name.png")} alt="logo" /></a>
                 <a href="about-us.html"><p className="link">About Us</p></a>
                 <a href="faq.html"><p className="link">Frequently Asked Questions</p></a>
                 <a href="contact-us.html"><p className="link">Contact Us</p></a>

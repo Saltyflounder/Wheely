@@ -7,16 +7,16 @@ function CarUploadPage() {
             <div className="header">
                 <div className="logo">
                     <a href="main.html">
-                        <img src="img/logo.png" alt="Wheely Logo" />
+                        <img src="../img/logo.png" alt="Wheely Logo" />
                     </a>
                     <span>Wheely</span>
                 </div>
                 <div className="navbar">
-                    <img src="img/navbar.png" alt="Nav Bar Icon" />
+                    <img src="../img/navbar.png" alt="Nav Bar Icon" />
                 </div>
                 <div className="profile">
                     <a href="userprofile.html">
-                        <img src="img/pfp.png" alt="Profile Image" />
+                        <img src="../img/pfp.png" alt="Profile Image" />
                     </a>
                 </div>
             </div>
@@ -138,7 +138,7 @@ function CarUploadPage() {
                     </div>
                 </form>
             </div>
-            <script src="index.js"></script>
+            <script src="../scripts/index.js"></script>
         </div>
     );
 }

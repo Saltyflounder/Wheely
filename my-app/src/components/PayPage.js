@@ -5,10 +5,10 @@ function PayPage() {
     return (
         <div>
             <nav className="top-nav">
-                <li><a href="main.html"><img className="logo" src="img/logo+name.png" alt="logo" /></a></li>
+                <li><a href="main.html"><img className="logo" src={require("../img/logo+name.png")} alt="logo" /></a></li>
                 <div className="navbar">
                     <li className="menu-button"><a href="menu.html">Menu</a></li>
-                    <li><a href="#"><img className="pfp" src="img/pfp.png" alt="profile icon" /></a></li>
+                    <li><a href="#"><img className="pfp" src={require("../img/pfp.png")} alt="profile icon" /></a></li>
                 </div>
             </nav>
 
@@ -16,10 +16,10 @@ function PayPage() {
                 <div className="payment-section">
                     <h2>Payment Information</h2>
                     <div className="payment-icons">
-                        <img src="img/visa.png" alt="Visa" />
-                        <img src="img/mastercard.png" alt="MasterCard" />
-                        <img src="img/paypal.png" alt="PayPal" />
-                        <img src="img/discover.png" alt="Discover" />
+                        <img src={require("../img/visa.png")} alt="Visa" />
+                        <img src={require("../img/mastercard.png")} alt="MasterCard" />
+                        <img src={require("../img/paypal.png")} alt="PayPal" />
+                        <img src={require("../img/discover.png")} alt="Discover" />
                     </div>
                     <form>
                         <div className="form-group">
@@ -51,7 +51,7 @@ function PayPage() {
                             </div>
                         </div>
                         <div className="form-group">
-                            <button type="button" className="apple-pay-btn">Pay with <img src="img/apple-pay.jpeg" alt="Apple Pay" /></button>
+                            <button type="button" className="apple-pay-btn">Pay with <img src={require("../img/apple-pay.jpeg")} alt="Apple Pay" /></button>
                         </div>
                         <div className="form-group">
                             <button type="submit" className="confirm-btn">Confirm Payment</button>
@@ -64,7 +64,7 @@ function PayPage() {
                     <div className="booking-info">
                         <h3>Tesla Model 3 2023</h3>
                         <p>Bellevue, WA</p>
-                        <img src="img/tesla.png" alt="Tesla Model 3" />
+                        <img src={require("../img/tesla.png")} alt="Tesla Model 3" />
                         <div className="pick-up-return-container">
                             <div className="pick-up-return">
                                 <label>
