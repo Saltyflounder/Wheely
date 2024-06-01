@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import MainPage from './components/MainPage';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import Verification from './components/Verification';
+import UserProfile from './components/UserProfile';
+import CarUploadPage from './components/CarUploadPage';
+import PayPage from './components/PayPage';
+import DetailedInfo from './components/DetailedInfo';
+import ResultPage from './components/ResultPage';
+import CurrentPastRentals from './components/CurrentPastRentals';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* <Route path="/" exact component={MainPage} /> */}
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/signin"  element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/verification" element={<Verification />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/car-upload" element={<CarUploadPage />} />
+          <Route path="/paypage" element={<PayPage />} />
+          <Route path="/detailed-info" element={<DetailedInfo />} />
+          <Route path="/result" element={<ResultPage />} />
+          <Route path="/current-past-rentals" element={<CurrentPastRentals />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
