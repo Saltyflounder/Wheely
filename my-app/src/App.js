@@ -11,8 +11,11 @@ import PayPage from './components/PayPage';
 import DetailedInfo from './components/DetailedInfo';
 import ResultPage from './components/ResultPage';
 import CurrentPastRentals from './components/CurrentPastRentals';
+import { getData } from "./scripts/firebase/getData";
 
 function App() {
+  // let a = await getData("cars");
+
   return (
     <Router>
       <div className="App">

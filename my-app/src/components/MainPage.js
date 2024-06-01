@@ -1,12 +1,48 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import './style_main_results.css';
 // import 'normalize.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/style_main_results.css';
-
-
+import { getData }  from '../scripts/firebase/getData';
 
 function MainPage() {
+
+    const [carModels, setCarModels] = useState([]);
+    const [carListings, setCarListings] = useState([]);
+    useEffect(() => {
+        const fetchCarModels = async () => {
+            let cars = await getData("cars");
+            setCarModels(cars);
+        };
+        const fetchListings = async () => {
+            let listing = await getData("listings");
+            setCarListings(listing);
+        };
+
+        fetchCarModels();
+        fetchListings();
+    }, []);
+
+    if (carModels.length === 0) {
+        return <div>Loading...</div>;
+    }
+
+    let car1 = carModels[0]?.car_model || "No model available";
+    let car2 = carModels[1]?.car_model || "No model available";
+    let car3 = carModels[2]?.car_model || "No model available";
+
+    let list1 = carListings[1]?.car_id || "No model available";
+    console.log(list1);
+    // let price1 = listings[0][""]
+    // console.log(car1);
+    // let carModels = cars.map(car => car["car_model"]);
+    // carModels.forEach((model, index) => {
+    //     console.log(`car${index + 1} model: ${model}`);
+    // });
+    // const [car1, car2, car3, ...rest] = carModels;
+    // console.log(car4)
+    // // console.log(a[0]["car_model"]);
     return (
         <div>
             <nav className="top-nav">
@@ -70,7 +106,7 @@ function MainPage() {
                             <div className="card">
                                 <i className="fa fa-heart heart-icon"></i>
                                 <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle" id="car_name">Tesla Model 3</p>
+                                <p className="vehicle" id="car_name">{car1}</p>
                                 <p className="rate">★4.97</p>
                                 <p className="location">Bellevue, WA</p>
                                 <p className="price">$55/day</p>
@@ -79,7 +115,7 @@ function MainPage() {
                             </div>
                             <div className="card">
                                 <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle">Tesla Model 3 2023</p>
+                                <p className="vehicle"></p>
                                 <p className="rate">★4.97</p>
                                 <p className="location">Bellevue, WA</p>
                                 <p className="price">$55/day</p>
@@ -88,7 +124,7 @@ function MainPage() {
                             </div>
                             <div className="card">
                                 <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle">Tesla Model 3 2023</p>
+                                <p className="vehicle"></p>
                                 <p className="rate">★4.97</p>
                                 <p className="location">Bellevue, WA</p>
                                 <p className="price">$55/day</p>
