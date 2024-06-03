@@ -158,6 +158,24 @@ app.get('/pay_page', (req, res) => {
     });
 });
 
+app.get('/search', (req, res) => {
+    const searchQuery = req.query.location;
+    CarList.find({
+        $or: [
+            { parking_city: { $regex: searchQuery, $options: 'i' } },
+            { parking_street: { $regex: searchQuery, $options: 'i' } }
+        ]
+    }).then(function(cars) {
+        res.render('result', {
+            carList: cars,
+            query: searchQuery
+        });
+    }).catch(function (err) {
+        console.log(err);
+        res.status(500).send('Error occurred during search');
+    });
+});
+
 app.use('/public', express.static('public'));
 
 app.listen(8000, () => console.log(`Server running on port 8000`));
