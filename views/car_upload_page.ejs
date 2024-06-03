@@ -17,59 +17,105 @@
     </nav>
 
     <div class="content">
-        <h1 class="title">Car Information</h1>
-        <form id="carUploadForm">
+        <form action="/upload_car" method="POST">
+            <h1 class="title">Car Information</h1>
+            <p class="title2">Pick-Up Info:</p>
             <div class="space">
-                <label for="location">Location:</label>
-                <input type="text" id="location" required>
+                <label for="parking_street">Pick-Up Address:</label>
+                <input type="text" id="parking_street" name="parking_street"><br>
             </div>
+            
             <div class="space">
-                <label for="vin">VIN:</label>
-                <input type="text" id="vin" required>
-                <input type="checkbox" id="oldModelCheckbox">
-                <label for="oldModelCheckbox">My model year is 1981 or earlier</label>
+                <label for="parking_city">Pick-Up City:</label>
+                <input type="text" id="parking_city" name="parking_city" required><br>
             </div>
+            
             <div class="space">
-                <label for="make">Make:</label>
-                <select id="yearDropdown"></select>
-                <select id="makeDropdown"></select>
-                <input type="text" id="model" required>
+                <label for="parking_state">Pick-Up State:</label>
+                <input type="text" id="parking_state" name="parking_state"><br>
             </div>
+    
             <div class="space">
-                <label for="odometer">Odometer:</label>
-                <select id="odometerDropdown"></select>
+                <label for="parking_zip">Pick-up Zipcode:</label>
+                <input type="text" id="parking_zip" name="parking_zip"><br>
             </div>
+            
+            <p class="title2">Vehicle Info:</p>
             <div class="space">
-                <label>Transmission:</label>
-                <div>
-                    <input type="radio" id="automatic" name="transmission" value="automatic" required>
-                    <label for="automatic">Automatic</label>
-                </div>
-                <div>
-                    <input type="radio" id="manual" name="transmission" value="manual">
-                    <label for="manual">Manual</label>
-                </div>
+                <label for="car_VIN">Vehicle Identification Number:</label>
+                <input type="text" id="car_VIN" name="car_VIN"><br>
             </div>
+    
             <div class="space">
-                <label for="value">Vehicle Value:</label>
-                <input type="text" id="value" required>
+                <label for="car_before_1981">Car Before 1981:</label>
+                <input type="number" id="car_before_1981" name="car_before_1981"><br>
             </div>
+    
             <div class="space">
-                <label for="price">Price per day:</label>
-                <input type="number" id="price" required>
+                <label for="car_year">Year of Model:</label>
+                <input type="number" id="car_year" name="car_year" required><br>
             </div>
+    
             <div class="space">
-                <label for="additionalInfo">Additional Information:</label>
-                <input type="text" id="additionalInfo">
+                <label for="car_make">Vehicle Brand:</label>
+                <input type="text" id="car_make" name="car_make" required><br>
             </div>
+    
             <div class="space">
-                <label for="photo">Upload Photo:</label>
-                <input type="file" id="photo">
+                <label for="car_model">Vehicle Model:</label>
+                <input type="text" id="car_model" name="car_model" required><br>
             </div>
+            
             <div class="space">
-                <label for="plate">Plate Number:</label>
-                <input type="text" id="plate" required>
+                <label for="car_odometer">Vehicle Odometer:</label>
+                <input type="number" id="car_odometer" name="car_odometer"><br>
             </div>
+    
+            <div class="space">
+                <label for="car_transmission">Transmission (Automatic/Manual):</label>
+                <input type="text" id="car_transmission" name="car_transmission"><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_price_per_day">Renting Price per Day:</label>
+                <input type="number" id="car_price_per_day" name="car_price_per_day" required><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_info">Car Info:</label>
+                <input type="text" id="car_info" name="car_info"><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_plate">Vehicle Plate#:</label>
+                <input type="text" id="car_plate" name="car_plate"><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_class">Vehicle Type (SUV, Sedan, Sports Car, etc.):</label>
+                <input type="text" id="car_class" name="car_class"><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_fuel_type">Fuel Type:</label>
+                <input type="text" id="car_fuel_type" name="car_fuel_type"><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_highway_mpg">Highway MPG:</label>
+                <input type="number" id="car_highway_mpg" name="car_highway_mpg"><br>
+            </div>
+            
+            <div class="space">
+                <label for="car_rating">Car Rating:</label>
+                <input type="number" id="car_rating" name="car_rating"><br>
+            </div>
+    
+            <div class="space">
+                <label for="car_image">Vehicle Image Link:</label>
+                <input type="text" id="car_image" name="car_image"><br>
+            </div>
+    
             <div class="space">
                 <a href="/">
                     <button class="end-button" type="button" id="cancelButton">Cancel</button>

@@ -93,71 +93,21 @@
             <section class="column-2">
                 <img id="left-arrow" class="arrow left-arrow" src="./public/img/left-arrow.png" alt="left next">
                 <div class="section-2-container">
-                    <!-- Card 1 -->
-                    <div class="card" onClick = "location.href='/cars/1001'">
-                        <i class="fa fa-heart heart-icon"></i>
-                        <img src="./public/img/car-picture.png" alt="A picture of car">
-                        <p class="vehicle"><%= carList[0].car_model%></p>
-                        <p class="rate">★<%= carList[0].car_rating%></p>
-                        <p class="location"><%= carList[0].parking_city%>, <%= carList[0].parking_state%></p>
-                        <p class="price">$<%= carList[0].car_price_per_day%>/day</p>
-                        <input type="checkbox" id="heart-btn-1" class="heart-btn">
-                        <label for="heart-btn-1" class="heart-icon"></label>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="card" onClick = "location.href='/cars/1002'">
-                        <img src="./public/img/car-picture.png" alt="A picture of car">
-                        <p class="vehicle"><%= carList[1].car_model%></p>
-                        <p class="rate">★<%= carList[1].car_rating%></p>
-                        <p class="location"><%= carList[1].parking_city%>, <%= carList[1].parking_state%></p>
-                        <p class="price">$<%= carList[1].car_price_per_day%>/day</p>
-                        <input type="checkbox" id="heart-btn-2" class="heart-btn">
-                        <label for="heart-btn-2" class="heart-icon"></label>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="card" onClick = "location.href='/cars/1003'">
-                        <img src="./public/img/car-picture.png" alt="A picture of car">
-                        <p class="vehicle"><%= carList[2].car_model%></p>
-                        <p class="rate">★<%= carList[2].car_rating%></p>
-                        <p class="location"><%= carList[2].parking_city%>, <%= carList[2].parking_state%></p>
-                        <p class="price">$<%= carList[2].car_price_per_day%>/day</p>
-                        <input type="checkbox" id="heart-btn-3" class="heart-btn">
-                        <label for="heart-btn-3" class="heart-icon"></label>
-                    </div>
-                   
-                    <div class="card" onClick = "location.href='/cars/1004'">
-                        <img src="./public/img/car-picture.png" alt="A picture of car">
-                        <p class="vehicle"><%= carList[3].car_model%></p>
-                        <p class="rate">★<%= carList[3].car_rating%></p>
-                        <p class="location"><%= carList[3].parking_city%>, <%= carList[3].parking_state%></p>
-                        <p class="price">$<%= carList[3].car_price_per_day%>/day</p>
-                        <input type="checkbox" id="heart-btn-4" class="heart-btn">
-                        <label for="heart-btn-4" class="heart-icon"></label>
-                    </div>
-                    
-                    <div class="card" onClick = "location.href='/cars/1005'">
-                        <img src="./public/img/car-picture.png" alt="A picture of car">
-                        <p class="vehicle"><%= carList[4].car_model%></p>
-                        <p class="rate">★<%= carList[4].car_rating%></p>
-                        <p class="location"><%= carList[4].parking_city%>, <%= carList[4].parking_state%></p>
-                        <p class="price">$<%= carList[4].car_price_per_day%>/day</p>
-                        <input type="checkbox" id="heart-btn-5" class="heart-btn">
-                        <label for="heart-btn-5" class="heart-icon"></label>
-                    </div>
-
-                    <div class="card" onClick = "location.href='/cars/1006'">
-                        <img src="./public/img/car-picture.png" alt="A picture of car">
-                        <p class="vehicle"><%= carList[5].car_model%></p>
-                        <p class="rate">★<%= carList[5].car_rating%></p>
-                        <p class="location"><%= carList[5].parking_city%>, <%= carList[5].parking_state%></p>
-                        <p class="price">$<%= carList[5].car_price_per_day%>/day</p>
-                        <input type="checkbox" id="heart-btn-6" class="heart-btn">
-                        <label for="heart-btn-6" class="heart-icon"></label>
-                    </div>
+                    <% for (let i = 0; i < carList.length && i < 6; i++) { %>
+                        <div class="card" onClick="location.href='/cars/<%= carList[i].car_id %>'">
+                            <i class="fa fa-heart heart-icon"></i>
+                            <img src="./public/img/car-picture.png" alt="A picture of car">
+                            <p class="vehicle"><%= carList[i].car_model %></p>
+                            <p class="rate">★<%= carList[i].car_rating %></p>
+                            <p class="location"><%= carList[i].parking_city %>, <%= carList[i].parking_state %></p>
+                            <p class="price">$<%= carList[i].car_price_per_day %>/day</p>
+                            <input type="checkbox" id="heart-btn-<%= i + 1 %>" class="heart-btn">
+                            <label for="heart-btn-<%= i + 1 %>" class="heart-icon"></label>
+                        </div>
+                    <% } %>
                 </div>
                 <img id="right-arrow" class="arrow right-arrow" src="./public/img/right-arrow.png" alt="right next">
             </section>
-            
         </div>
     </main>
 
