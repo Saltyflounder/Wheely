@@ -87,9 +87,46 @@ app.get('/cars/:id', (req, res) => {
     });
 });
 
+app.get('/pay/:id', (req, res) => {
+    const carId = req.params.id;
+    Promise.all([
+        CarList.findOne({ car_id: carId }).exec(),
+        ListingList.find({ car_id: carId }).exec()
+        //,ReviewList.find({ car_id: carId }).exec()
+    ]).then(([car, listings]) => {
+        if (car) {
+            res.render('pay_page', { car, ListingList: listings}); // , ReviewList: reviews});
+        }
+    }).catch(err => {
+        console.log(err);
+    });
+});
 
+app.get('/car_upload_page', (req, res) => {
+    res.render('car_upload_page');
+});
+
+app.get('/result', (req, res) => {
+    CarList.find().then(function(cars) {
+        res.render('result', {
+            carList: cars
+        })
+    }).catch(function (err) {
+        console.log(err)
+    })
+});
+
+app.get('/pay_page', (req, res) => {
+    CarList.find().then(function(cars) {
+        res.render('pay_page', {
+            carList: cars
+        })
+    }).catch(function (err) {
+        console.log(err)
+    })
+});
 
 
 app.use('/public', express.static('public'));
 
-app.listen(5000, () => console.log(`Server running on port 5000`));
+app.listen(8000, () => console.log(`Server running on port 8000`));

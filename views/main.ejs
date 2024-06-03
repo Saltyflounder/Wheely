@@ -27,9 +27,9 @@
         <!-- Navigation Bar -->
         <nav class="top-nav">
             <!-- <li><a href="index.html" class="logo">Wheely</a></li> -->
-            <li><a href="main.ejs"><img class="logo" src= "./public/img/logo+name.png" alt="logo"></a></li>
+            <li><a href="/"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
             <div class="navbar">
-                <li class="upload-button"><a href="event.html">Upload my vehicle</a></li>
+                <li class="upload-button"><a href="/car_upload_page">Upload my vehicle</a></li>
                 <li><a href="#">Log-In</a></li>
             </div>
         </nav>
@@ -55,7 +55,9 @@
                                 <input class="search-input search-field" type="date" aria-label="End Date" value="" min="" max="">
                                 <input class="search-input search-field" type="time" aria-label="End Time" value="" step="900">
                             </div>
-                            <button class="search-button" type="submit">Search</button>
+                            <a href="/result">
+                                <button class="search-button" type="submit">Search</button>
+                            </a>
                         </div>
                         <div class="vehicle-icons">
                             <input type="radio" name="vehicle" id="sedan" value="sedan">
@@ -87,7 +89,7 @@
         <main>
             <div class="container">
                 <section class="column-1">
-                    <h1>Recommended Vehicles</h1>
+                    <h1>Recommendation</h1>
                 </section>
                 <section class="column-2">
                     <img id="left-arrow" class="arrow left-arrow" src="./public/img/left-arrow.png" alt="left next">

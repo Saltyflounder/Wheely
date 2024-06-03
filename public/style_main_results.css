@@ -510,7 +510,11 @@ p.copyright {
     margin-bottom: 100px;
 }
 .title-section.result { 
-    /* margin-left: 100px; */
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.title-section.results { 
+    
     margin-top: 50px;
 }
 
@@ -814,6 +818,7 @@ button:hover {
     margin: 20px;
     font-size: 20px;
     transition: background-color 0.2s;
+    
   }
   .rent-button:hover {
     background-color: gray;

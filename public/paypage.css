@@ -7,6 +7,18 @@ body {
 }
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+
 /* navigation bar style */
 .top-nav {
     display: flex;
@@ -14,8 +26,8 @@ body {
     justify-content: space-between;
     width: 100%;
     background: #14213D;
-    /*padding: 10px 20px;*/
 }
+
 
 .top-nav li > a,
 .logo {
@@ -30,15 +42,19 @@ body {
     font-size: 3rem;
     padding: 10px 20px;
     height: 60px;
-    width: auto; 
+    width: auto;
+    
 }
+
 
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 15px;
+    padding-top: 5px;
     margin-right: 20px;
 }
+
+
 
 .navbar p {
     font-size: 20px;
@@ -46,17 +62,11 @@ body {
     font-weight: 500;
     margin-left: 10px;
     padding: 10px;
-    /*display: inline-block;*/
+    display: inline-block;
 }
 
-.navbar .menu-button {
-    font-size: 20px;
+.navbar .upload-button {
     text-decoration: underline;
-    color: white;
-}
-
-.navbar .pfp {
-    width: 60px;
 }
 
 /*payment info part and sections*/

@@ -27,10 +27,9 @@
     <body>
         <!-- Navigation Bar -->
         <nav class="top-nav">
-            <!-- <li><a href="index.html" class="logo">Wheely</a></li> -->
-            <li><a href="main.html"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
+            <li><a href="/"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
             <div class="navbar">
-                <li class="upload-button"><a href="event.html">Upload my vehicle</a></li>
+                <li class="upload-button"><a href="/car_upload_page">Upload my vehicle</a></li>
                 <li><a href="#">Log-In</a></li>
             </div>
         </nav>
@@ -64,7 +63,7 @@
                         </div>
                         <div class="separate"></div>
                         <div class="profile-info">
-                            <img src="../public/img/drake-profile.png" alt="profile image">
+                            <img src="../public/img/ariel-profile.png" alt="profile image">
                             <div class="text">
                                     <p class="profile-name">Owned by <%= ListingList[array_val].owner_name %></p>
                                 <p class="hosting">Hosting for 4 years</p>
@@ -146,9 +145,12 @@
                         <p class="cost">$<%= car.car_price_per_day%>/day</p> 
                         <!-- Cuts date string from 2024-xx-xx to xx-xx for easier readability-->
                         <p class="date"><%= ListingList[array_val].date_rented.substr(5)%> to <%= ListingList[array_val].date_returned.substr(5)%></p> 
-                        <div class="centerButton">
+                        <!-- <a class="centerButton" onClick = "location.href='/pay/car.car_id'">
                             <button class="rent-button">Rent</button>
-                        </div>
+                        </a> -->
+                        <form class="centerButton" action="/pay/<%= car.car_id %>" method="GET">
+                            <button class="rent-button" type="submit">Rent</button>
+                        </form>
                         <div class="group-column">
                             <p class="cost-day">$<%= car.car_price_per_day%> x 3 days</p>
                             <p>$<%=car.car_price_per_day * 3%></p>
