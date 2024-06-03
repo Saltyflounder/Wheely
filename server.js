@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 const ejs = require('ejs');
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb+srv://troylu6:8T09AO7DvyS8wuHL@wheely.xms60gm.mongodb.net/Wheely?retryWrites=true&w=majority&appName=Wheely')
-
+mongoose.connect('mongodb+srv://troylu6:8T09AO7DvyS8wuHL@wheely.xms60gm.mongodb.net/Wheely?retryWrites=true&w=majority&appName=Wheely');
 
 const carSchema = {
     car_id: Number, 
@@ -49,38 +50,29 @@ const listingSchema = {
     owner: String, 
     renter_name: String, 
     owner_name: String
-}
-
-/* const reviewSchema = {
-    review_id: String, 
-    review_star: Number, 
-} */
+};
 
 const CarList = mongoose.model('cars', carSchema);
 const ListingList = mongoose.model('listings', listingSchema);
-// const ReviewList = mongoose.model('reviews', reviewSchema);
-
 
 app.get('/', (req, res) => {
     CarList.find().then(function(cars) {
         res.render('main', {
             carList: cars
-        })
+        });
     }).catch(function (err) {
-        console.log(err)
-    })
+        console.log(err);
+    });
 });
-
 
 app.get('/cars/:id', (req, res) => {
     const carId = req.params.id;
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
         ListingList.find({ car_id: carId }).exec()
-        //,ReviewList.find({ car_id: carId }).exec()
-    ]).then(([car, listings, reviews]) => {
+    ]).then(([car, listings]) => {
         if (car) {
-            res.render('detailed_info', { car, ListingList: listings}); // , ReviewList: reviews});
+            res.render('detailed_info', { car, ListingList: listings });
         }
     }).catch(err => {
         console.log(err);
@@ -92,14 +84,54 @@ app.get('/pay/:id', (req, res) => {
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
         ListingList.find({ car_id: carId }).exec()
-        //,ReviewList.find({ car_id: carId }).exec()
     ]).then(([car, listings]) => {
         if (car) {
-            res.render('pay_page', { car, ListingList: listings}); // , ReviewList: reviews});
+            res.render('pay_page', { car, ListingList: listings });
         }
     }).catch(err => {
         console.log(err);
     });
+});
+
+app.post('/pay_process', (req, res) => {
+    const { name, cardNumber, expirationDate, cvv, address, zipCode } = req.body;
+    let errors = [];
+
+    // Regular expressions for validation
+    const cardNumberRegex = /^\d{16}$/;
+    const expirationDateRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+    const cvvRegex = /^\d{3}$/;
+    const zipCodeRegex = /^\d{5}$/;
+
+    // Server-side validation
+    if (!name || name.trim() === "") {
+        errors.push("Name on card is required.");
+    }
+    if (!cardNumberRegex.test(cardNumber)) {
+        errors.push("Card number must be 16 digits.");
+    }
+    if (!expirationDateRegex.test(expirationDate)) {
+        errors.push("Expiration date must be in MM/YYYY format.");
+    }
+    if (!cvvRegex.test(cvv)) {
+        errors.push("CVV must be 3 digits.");
+    }
+    if (!address || address.trim() === "") {
+        errors.push("Address is required.");
+    }
+    if (!zipCodeRegex.test(zipCode)) {
+        errors.push("Zip code must be 5 digits.");
+    }
+
+    if (errors.length > 0) {
+        // If there are validation errors, re-render the payment page with errors
+        res.render('pay_page', { errors });
+    } else {
+        // Process the payment (this is a placeholder for actual payment logic)
+        // For example, call the payment gateway API here
+
+        res.send("Payment processed successfully!");
+    }
 });
 
 app.get('/car_upload_page', (req, res) => {
@@ -110,22 +142,21 @@ app.get('/result', (req, res) => {
     CarList.find().then(function(cars) {
         res.render('result', {
             carList: cars
-        })
+        });
     }).catch(function (err) {
-        console.log(err)
-    })
+        console.log(err);
+    });
 });
 
 app.get('/pay_page', (req, res) => {
     CarList.find().then(function(cars) {
         res.render('pay_page', {
             carList: cars
-        })
+        });
     }).catch(function (err) {
-        console.log(err)
-    })
+        console.log(err);
+    });
 });
-
 
 app.use('/public', express.static('public'));
 
