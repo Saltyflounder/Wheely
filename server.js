@@ -52,10 +52,18 @@ const listingSchema = {
     owner_name: String
 };
 
+
+const carImgSchema = {
+    car_id: Number, 
+    image: String,
+    description: String
+};
+
 const CarList = mongoose.model('cars', carSchema);
 const ListingList = mongoose.model('listings', listingSchema);
+const CarImgList = mongoose.model('car_imgs', carImgSchema);
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     CarList.find().then(function(cars) {
         res.render('main', {
             carList: cars
@@ -63,16 +71,26 @@ app.get('/', (req, res) => {
     }).catch(function (err) {
         console.log(err);
     });
-});
+});*/ 
+
+app.get('/', (req, res) => {
+    Promise.all([
+        CarList.find().exec(), 
+        CarImgList.find().exec()
+    ]).then(([car, image]) => {
+        res.render('main', { carList: car, imageList: image})
+    }).catch(err => { console.log(err); })
+})
 
 app.get('/cars/:id', (req, res) => {
     const carId = req.params.id;
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
-        ListingList.find({ car_id: carId }).exec()
-    ]).then(([car, listings]) => {
+        ListingList.find({ car_id: carId }).exec(),
+        CarImgList.find().exec()
+    ]).then(([car, listings, image]) => {
         if (car) {
-            res.render('detailed_info', { car, ListingList: listings });
+            res.render('detailed_info', { car, ListingList: listings, imageList: image });
         }
     }).catch(err => {
         console.log(err);

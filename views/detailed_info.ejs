@@ -25,6 +25,13 @@
 
     </head>
     <body>
+        <!-- Finds the relevant car and tracks its index to allow for easier information matching. -->
+        <% let array_val = -1; %>
+        <% for (let i = 0; i < ListingList.length; i++) { %>
+            <% if (car.car_id === ListingList[i].car_id) { %>
+                <% array_val = i; %>
+            <% } %>
+        <% } %>
         <!-- Navigation Bar -->
         <nav class="top-nav">
             <li><a href="/"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
@@ -36,7 +43,8 @@
         <!-- Header Elements with Images -->
         <header>
             <div class="image-grid">
-                <img class="image-grid-col-2 image-grid-row-2" src="../public/img/car-picture.png" alt="architecture">
+                <!-- This image shown on the page is the same for every single car; not sure why. -->
+                <img class="image-grid-col-2 image-grid-row-2" src="<%= imageList[array_val].image %>" alt="architecture">
                 <img src="../public/img/car-picture-1.5.png" alt="car-picture-1.5">
                 <img src="../public/img/car-picture-2.png" alt="car-picture-2">
                 <img src="../public/img/car-picture-3.png" alt="car-picture-3">
@@ -45,14 +53,6 @@
         </header>
         <!-- Detailed Car Info Page -->
         <main>
-            <!-- Finds the relevant car and tracks its index to allow for easier information matching. -->
-            <% let array_val = -1; %>
-            <% for (let i = 0; i < ListingList.length; i++) { %>
-                <% if (car.car_id === ListingList[i].car_id) { %>
-                    <% array_val = i; %>
-                <% } %>
-            <% } %>
-
             <div class="info-payment-column">
                 <div>
                     <section class="container">
