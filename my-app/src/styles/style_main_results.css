@@ -89,12 +89,13 @@ h1 {
  /* Artist recommendation card*/
 .section-2-container {
     display: flex;
-    margin-left: 65px;
-    margin-right: 65px;
+    /* margin-left: 65px;
+    margin-right: 65px; */
     overflow-x: auto;
     scroll-behavior: smooth;
     width: auto;
-    max-width: 1250px;
+    
+    /* max-width: 1250px; */
     min-width: 410px;
 }
 
@@ -131,8 +132,8 @@ h1 {
  
 .column-2 {
     display: flex;
-    flex: 1;
-    flex-grow: 1;
+    /* flex: 1;
+    flex-grow: 1; */
     margin-bottom: 90px;
     align-items: flex-start;
 }
@@ -828,3 +829,4 @@ button:hover {
     margin-right: 105px;
   }
 
+  

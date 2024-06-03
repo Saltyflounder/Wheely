@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import './App.css';
 import MainPage from './components/MainPage';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -12,6 +11,7 @@ import DetailedInfo from './components/DetailedInfo';
 import ResultPage from './components/ResultPage';
 import CurrentPastRentals from './components/CurrentPastRentals';
 import { getData } from "./scripts/firebase/getData";
+
 
 function App() {
   // let a = await getData("cars");

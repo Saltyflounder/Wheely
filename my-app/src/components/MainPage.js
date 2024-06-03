@@ -1,15 +1,13 @@
-// import React from 'react';
 import React, { useEffect, useState, useRef } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css';
 import '../styles/style_main_results.css';
-
-import { getData }  from '../scripts/firebase/getData';
+import { getData } from '../scripts/firebase/getData';
 
 function MainPage() {
-
     const [carModels, setCarModels] = useState([]);
     const [carListings, setCarListings] = useState([]);
+    const containerRef = useRef(null);
+
     useEffect(() => {
         const fetchCarModels = async () => {
             let cars = await getData("cars");
@@ -28,24 +26,14 @@ function MainPage() {
         return <div>Loading...</div>;
     }
 
-    let car1 = carModels[0]?.car_model || "No model available";
-    let car2 = carModels[1]?.car_model || "No model available";
-    let car3 = carModels[2]?.car_model || "No model available";
-    let car4 = carModels[3]?.car_model || "No model available";
-    let car5 = carModels[4]?.car_model || "No model available";
-    let car6 = carModels[5]?.car_model || "No model available";
+    const scrollLeft = () => {
+        containerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    };
 
-    let list1 = carListings[1]?.car_id || "No model available";
-    console.log(list1);
-    // let price1 = listings[0][""]
-    // console.log(car1);
-    // let carModels = cars.map(car => car["car_model"]);
-    // carModels.forEach((model, index) => {
-    //     console.log(`car${index + 1} model: ${model}`);
-    // });
-    // const [car1, car2, car3, ...rest] = carModels;
-    // console.log(car4)
-    // // console.log(a[0]["car_model"]);
+    const scrollRight = () => {
+        containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    };
+
     return (
         <div className="whole">
             <nav className="top-nav">
@@ -62,7 +50,7 @@ function MainPage() {
                             <div className="search-inputs">
                                 <div className="input-group">
                                     <label htmlFor="location">Where</label>
-                                    <input className="search-input search-field" type="text" placeholder="City, address, hotel, etc." aria-label="Location" id="location" />
+                                    <input className="search-input search-field" type="text" placeholder="Type city here..." aria-label="Location" id="location" />
                                 </div>
                                 <div className="separator"></div>
                                 <div className="input-group">
@@ -104,56 +92,22 @@ function MainPage() {
                         <h1>Recommendation</h1>
                     </section>
                     <section className="column-2">
-                        <img id="left-arrow" className="arrow left-arrow" src={require("../img/left-arrow.png")} alt="left next" />
-                        <div className="section-2-container">
-                            <div className="card">
-                                <i className="fa fa-heart heart-icon"></i>
-                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle" id="car_name">{car1}</p>
-                                <p className="rate">★4.97</p>
-                                <p className="location">Bellevue, WA</p>
-                                <p className="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-1" className="heart-btn" />
-                                <label htmlFor="heart-btn-1" className="heart-icon"></label>
-                            </div>
-                            <div className="card">
-                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle">{car2}</p>
-                                <p className="rate">★4.97</p>
-                                <p className="location">Bellevue, WA</p>
-                                <p className="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-2" className="heart-btn" />
-                                <label htmlFor="heart-btn-2" className="heart-icon"></label>
-                            </div>
-                            <div className="card">
-                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle">{car3}</p>
-                                <p className="rate">★4.97</p>
-                                <p className="location">Bellevue, WA</p>
-                                <p className="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-3" className="heart-btn" />
-                                <label htmlFor="heart-btn-3" className="heart-icon"></label>
-                            </div>
-                            <div className="card">
-                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle">{car4}</p>
-                                <p className="rate">★4.97</p>
-                                <p className="location">Bellevue, WA</p>
-                                <p className="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-3" className="heart-btn" />
-                                <label htmlFor="heart-btn-3" className="heart-icon"></label>
-                            </div>
-                            <div className="card">
-                                <img src={require("../img/car-picture.png")} alt="A picture of car" />
-                                <p className="vehicle">{car5}</p>
-                                <p className="rate">★4.97</p>
-                                <p className="location">Bellevue, WA</p>
-                                <p className="price">$55/day</p>
-                                <input type="checkbox" id="heart-btn-3" className="heart-btn" />
-                                <label htmlFor="heart-btn-3" className="heart-icon"></label>
-                            </div>
+                        <img id="left-arrow" className="arrow left-arrow" src={require("../img/left-arrow.png")} alt="left next" onClick={scrollLeft} />
+                        <div className="section-2-container" ref={containerRef}>
+                            {carModels.slice(0, 6).map((car, index) => (
+                                <div className="card" key={index}>
+                                    <i className="fa fa-heart heart-icon"></i>
+                                    <img src={require("../img/car-picture.png")} alt="A picture of car" />
+                                    <p className="vehicle">{car.car_model || "No model available"}</p>
+                                    <p className="rate">★4.97</p>
+                                    <p className="location">Bellevue, WA</p>
+                                    <p className="price">$55/day</p>
+                                    <input type="checkbox" id={`heart-btn-${index}`} className="heart-btn" />
+                                    <label htmlFor={`heart-btn-${index}`} className="heart-icon"></label>
+                                </div>
+                            ))}
                         </div>
-                        <img id="right-arrow" className="arrow right-arrow" src={require("../img/right-arrow.png")} alt="right next" />
+                        <img id="right-arrow" className="arrow right-arrow" src={require("../img/right-arrow.png")} alt="right next" onClick={scrollRight} />
                     </section>
                 </div>
             </main>
@@ -165,10 +119,8 @@ function MainPage() {
                 <a href="customer-support.html"><p className="link">Customer Support</p></a>
                 <p className="copyright">&copy; 2024 Wheely</p>
             </footer>
-            <script src="../script/horizontal/carousel-horizontal.js"></script>
         </div>
     );
 }
 
 export default MainPage;
-
