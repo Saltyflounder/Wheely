@@ -94,7 +94,8 @@
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
                             <div class="carousel-slide">
-                                <img src="../public/img/car-picture.png" alt="A picture of car">
+                                <!-- Needs to show results based on search, not manually added. -->
+                                <img src="../public/img/car-picture.png" onClick = "location.href='/cars/1001'" alt="A picture of car">
                                 <div class="card-content" onClick = "location.href='/cars/1001'">
                                     <p class="vehicle"><%= carList[0].car_model%></p>
                                     <div class="details">

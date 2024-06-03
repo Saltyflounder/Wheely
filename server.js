@@ -101,7 +101,8 @@ app.get('/pay/:id', (req, res) => {
     const carId = req.params.id;
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
-        ListingList.find({ car_id: carId }).exec()
+        ListingList.find({ car_id: carId }).exec(),
+        CarImgList.find().exec()
     ]).then(([car, listings]) => {
         if (car) {
             res.render('pay_page', { car, ListingList: listings });
@@ -156,12 +157,17 @@ app.get('/car_upload_page', (req, res) => {
     res.render('car_upload_page');
 });
 
-app.get('/result', (req, res) => {
-    CarList.find().then(function(cars) {
-        res.render('result', {
-            carList: cars
-        });
-    }).catch(function (err) {
+app.get('/cars/:id', (req, res) => {
+    const carId = req.params.id;
+    Promise.all([
+        CarList.findOne({ car_id: carId }).exec(),
+        ListingList.find({ car_id: carId }).exec(),
+        CarImgList.find().exec()
+    ]).then(([car, listings, image]) => {
+        if (car) {
+            res.render('detailed_info', { car, ListingList: listings, imageList: image });
+        }
+    }).catch(err => {
         console.log(err);
     });
 });
