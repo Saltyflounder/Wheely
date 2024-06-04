@@ -54,8 +54,18 @@ const listingSchema = {
     owner_name: String
 };
 
+const reviewSchema = {
+    review_id: Number,
+    car_id: Number,
+    reviewer_name: String,
+    review_star: Number,
+    review_detail: String,
+    week_ago: Number
+};
+
 const CarList = mongoose.model('cars', carSchema);
 const ListingList = mongoose.model('listings', listingSchema);
+const ReviewList = mongoose.model('reviews', reviewSchema);
 
 app.get('/', (req, res) => {
     CarList.find().then(function (cars) {
@@ -71,10 +81,11 @@ app.get('/cars/:id', (req, res) => {
     const carId = req.params.id;
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
-        ListingList.find({ car_id: carId }).exec()
-    ]).then(([car, listings]) => {
+        ListingList.find({ car_id: carId }).exec(),
+        ReviewList.find({ car_id: carId }).exec()
+    ]).then(([car, listings, reviews]) => {
         if (car) {
-            res.render('detailed_info', { car, ListingList: listings });
+            res.render('detailed_info', { car, ListingList: listings, reviews });
         }
     }).catch(err => {
         console.log(err);

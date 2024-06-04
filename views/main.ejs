@@ -101,8 +101,10 @@
                             <p class="rate">★<%= carList[i].car_rating %></p>
                             <p class="location"><%= carList[i].parking_city %>, <%= carList[i].parking_state %></p>
                             <p class="price">$<%= carList[i].car_price_per_day %>/day</p>
-                            <input type="checkbox" id="heart-btn-<%= i + 1 %>" class="heart-btn">
-                            <label for="heart-btn-<%= i + 1 %>" class="heart-icon"></label>
+                            
+                            <!-- Not Keeping like button in recommendation card for now -->
+                            <!-- <input type="checkbox" id="heart-btn-<%= i + 1 %>" class="heart-btn">
+                            <label for="heart-btn-<%= i + 1 %>" class="heart-icon"></label> -->
                         </div>
                     <% } %>
                 </div>
@@ -119,7 +121,6 @@
         <a href="./public/contact-us.html"><p class="link">Contact Us</p></a>
         <a href="./public/customer-support.html"><p class="link">Customer Support</p></a>
         <p class="copyright">&copy; 2024 Wheely</p>
-
     </footer>
     <script src="./public/carousel-horizontal.js"></script>
 
