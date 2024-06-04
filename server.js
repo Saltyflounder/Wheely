@@ -131,7 +131,13 @@ app.post('/pay_process', (req, res) => {
 });
 
 app.get('/car_upload_page', (req, res) => {
-    res.render('car_upload_page');
+    CarList.find().then(function (cars) {
+        res.render('car_upload_page', {
+            carList: cars
+        });
+    }).catch(function (err) {
+        console.log(err);
+    });
 });
 
 app.post('/upload_car', (req, res) => {
@@ -159,7 +165,9 @@ app.post('/upload_car', (req, res) => {
     });
 
     newCar.save().then(() => {
-        res.render('upload_success');
+        res.render('upload_success'), {
+            newCar: new_car
+        };
     }).catch(err => {
         console.log(err);
         res.status(500).send('Error occurred while uploading car data.');
