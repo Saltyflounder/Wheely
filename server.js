@@ -106,7 +106,7 @@ app.get('/pay/:id', (req, res) => {
         CarImgList.find({ car_id: carId }).exec()
     ]).then(([car, listings, images, cars]) => {
         if (car) {
-            res.render('pay_page', { car, ListingList: listings, imageList: images, carList: cars }); // Added carList to the context
+            res.render('pay_page', { car, ListingList: listings, imageList: images, carList: cars });
         }
     }).catch(err => {
         console.log(err);
@@ -114,39 +114,54 @@ app.get('/pay/:id', (req, res) => {
 });
 
 app.post('/pay_process', (req, res) => {
-    const { name, cardNumber, expirationDate, cvv, address, zipCode } = req.body;
-    let errors = [];
-
-    const cardNumberRegex = /^\d{16}$/;
-    const expirationDateRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
-    const cvvRegex = /^\d{3}$/;
-    const zipCodeRegex = /^\d{5}$/;
-
-    if (!name || name.trim() === "") {
-        errors.push("Name on card is required.");
-    }
-    if (!cardNumberRegex.test(cardNumber)) {
-        errors.push("Card number must be 16 digits.");
-    }
-    if (!expirationDateRegex.test(expirationDate)) {
-        errors.push("Expiration date must be in MM/YYYY format.");
-    }
-    if (!cvvRegex.test(cvv)) {
-        errors.push("CVV must be 3 digits.");
-    }
-    if (!address || address.trim() === "") {
-        errors.push("Address is required.");
-    }
-    if (!zipCodeRegex.test(zipCode)) {
-        errors.push("Zip code must be 5 digits.");
-    }
-
-    if (errors.length > 0) {
-        res.render('pay_page', { errors });
-    } else {
-        res.send("Payment processed successfully!");
-    }
+    res.render('payment_success');
 });
+
+// app.post('/pay_process', (req, res) => {
+//     const { name, cardNumber, expirationDate, cvv, address, zipCode, carId } = req.body;
+//     let errors = [];
+
+//     const cardNumberRegex = /^\d{16}$/;
+//     const expirationDateRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+//     const cvvRegex = /^\d{3}$/;
+//     const zipCodeRegex = /^\d{5}$/;
+
+//     if (!name || name.trim() === "") {
+//         errors.push("Name on card is required.");
+//     }
+//     if (!cardNumberRegex.test(cardNumber)) {
+//         errors.push("Card number must be 16 digits.");
+//     }
+//     if (!expirationDateRegex.test(expirationDate)) {
+//         errors.push("Expiration date must be in MM/YYYY format.");
+//     }
+//     if (!cvvRegex.test(cvv)) {
+//         errors.push("CVV must be 3 digits.");
+//     }
+//     if (!address || address.trim() === "") {
+//         errors.push("Address is required.");
+//     }
+//     if (!zipCodeRegex.test(zipCode)) {
+//         errors.push("Zip code must be 5 digits.");
+//     }
+
+//     if (errors.length > 0) {
+        
+//         Promise.all([
+//             CarList.findOne({ car_id: carId }).exec(),
+//             ListingList.find({ car_id: carId }).exec(),
+//             CarImgList.find({ car_id: carId }).exec()
+//         ]).then(([car, listings, images]) => {
+//             res.render('pay_page', { errors, car, ListingList: listings, imageList: images });
+//         }).catch(err => {
+//             console.log(err);
+//         });
+//     } else {
+        
+//         res.render('payment_success');
+//     }
+// });
+
 
 app.get('/car_upload_page', (req, res) => {
     CarList.find().then(function (cars) {
@@ -205,11 +220,13 @@ app.get('/result', (req, res) => {
 });
 
 app.get('/pay_page', (req, res) => {
-    CarList.find().then(function (cars) {
-        res.render('pay_page', {
-            carList: cars
-        });
-    }).catch(function (err) {
+    Promise.all([
+        CarList.find().exec(),
+        ListingList.find().exec(),
+        CarImgList.find().exec()
+    ]).then(([cars, listings, images]) => {
+        res.render('pay_page', { car, ListingList: listings, imageList: images, carList: cars });
+    }).catch(err => {
         console.log(err);
     });
 });

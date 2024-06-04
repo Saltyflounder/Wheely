@@ -89,6 +89,7 @@
                 <img src="../public/img/discover.png" alt="Discover">
             </div>
             <form name="paymentForm" onsubmit="return validateForm()" method="POST" action="/pay_process">
+                <input type="hidden" name="carId" value="<%= car.car_id %>">
                 <div class="form-group">
                     <label for="name">Your Name on Card</label>
                     <input type="text" id="name" name="name" placeholder="Your name">
@@ -121,10 +122,10 @@
                     <button type="submit" class="apple-pay-btn">Pay with <img src="../public/img/apple-pay.jpeg" alt="Apple Pay"></button>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="confirm-btn">Confirm Payment</button>
+                    <button type="submit" class="confirm-btn" id="saveButton">Confirm Payment</button>
                 </div>
             </form>
-            <% if (typeof errors !== 'undefined') { %>
+            <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
                 <ul class="error-list">
                     <% errors.forEach(function(error) { %>
                         <li><%= error %></li>
