@@ -6,75 +6,92 @@ const ejs = require('ejs');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/public', express.static('public'));
 
 mongoose.connect('mongodb+srv://troylu6:8T09AO7DvyS8wuHL@wheely.xms60gm.mongodb.net/Wheely?retryWrites=true&w=majority&appName=Wheely');
 
 const carSchema = {
-    car_id: Number,
-    parking_name: String,
-    parking_street: String,
-    parking_city: String,
-    parking_state: String,
+    car_id: Number, 
+    parking_name: String, 
+    parking_street: String, 
+    parking_city: String, 
+    parking_state: String, 
     parking_zip: String,
-    car_VIN: String,
-    car_before_1981: Number,
-    car_year: Number,
-    car_make: String,
-    car_model: String,
-    car_odometer: Number,
-    car_transmission: String,
-    car_value: Number,
-    car_price_per_day: Number,
-    car_info: String,
-    car_plate: String,
-    car_mpg: Number,
-    car_class: String,
-    car_combination_mpg: Number,
-    car_cylinder: Number,
-    car_displacement: String,
+    car_VIN: String, 
+    car_before_1981: Number, 
+    car_year: Number, 
+    car_make: String, 
+    car_model: String, 
+    car_odometer: Number, 
+    car_transmission: String, 
+    car_value: Number, 
+    car_price_per_day: Number, 
+    car_info: String, 
+    car_plate: String, 
+    car_mpg: Number, 
+    car_class: String, 
+    car_combination_mpg: Number, 
+    car_cylinder: Number, 
+    car_displacement: String, 
     car_drive: String,
-    car_fuel_type: String,
+    car_fuel_type: String, 
     car_highway_mpg: Number,
     car_rating: Number,
-    car_image: String
+    car_image: String // Ensure this field is included to store image URLs
 };
 
 const listingSchema = {
-    listing_id: Number,
-    available_dates: String,
-    available_time: String,
-    date_rented: String,
-    date_returned: String,
-    driven_mi: Number,
-    car_id: Number,
-    renter: String,
-    owner: String,
-    renter_name: String,
+    listing_id: Number, 
+    available_dates: String, 
+    available_time: String, 
+    date_rented: String, 
+    date_returned: String, 
+    driven_mi: Number, 
+    car_id: Number, 
+    renter: String, 
+    owner: String, 
+    renter_name: String, 
     owner_name: String
+};
+
+const carImgSchema = {
+    car_id: Number, 
+    image: String,
+    description: String
+};
+
+const reviewSchema = {
+    review_id: Number,
+    car_id: Number,
+    reviewer_name: String,
+    rating: Number,
+    review_detail: String,
+    week_ago: Number
 };
 
 const CarList = mongoose.model('cars', carSchema);
 const ListingList = mongoose.model('listings', listingSchema);
+const CarImgList = mongoose.model('car_imgs', carImgSchema);
+const ReviewList = mongoose.model('reviews', reviewSchema);
 
 app.get('/', (req, res) => {
-    CarList.find().then(function (cars) {
-        res.render('main', {
-            carList: cars
-        });
-    }).catch(function (err) {
-        console.log(err);
-    });
+    Promise.all([
+        CarList.find().exec(), 
+        CarImgList.find().exec()
+    ]).then(([cars, images]) => {
+        res.render('main', { carList: cars, imageList: images });
+    }).catch(err => { console.log(err); })
 });
 
 app.get('/cars/:id', (req, res) => {
     const carId = req.params.id;
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
-        ListingList.find({ car_id: carId }).exec()
-    ]).then(([car, listings]) => {
+        ListingList.find({ car_id: carId }).exec(),
+        CarImgList.find().exec(),
+        ReviewList.find({ car_id: carId }).exec()
+    ]).then(([car, listings, images, reviews]) => {
         if (car) {
-            res.render('detailed_info', { car, ListingList: listings });
+            res.render('detailed_info', { car, ListingList: listings, imageList: images, reviews });
         }
     }).catch(err => {
         console.log(err);
@@ -85,10 +102,11 @@ app.get('/pay/:id', (req, res) => {
     const carId = req.params.id;
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
-        ListingList.find({ car_id: carId }).exec()
-    ]).then(([car, listings]) => {
+        ListingList.find({ car_id: carId }).exec(),
+        CarImgList.find().exec()
+    ]).then(([car, listings, images]) => {
         if (car) {
-            res.render('pay_page', { car, ListingList: listings });
+            res.render('pay_page', { car, ListingList: listings, imageList: images});
         }
     }).catch(err => {
         console.log(err);
@@ -161,7 +179,7 @@ app.post('/upload_car', (req, res) => {
         car_fuel_type: req.body.car_fuel_type,
         car_highway_mpg: req.body.car_highway_mpg,
         car_rating: req.body.car_rating,
-        car_image: req.body.car_image
+        car_image: req.body.car_image // Make sure the image URL is stored
     });
 
     newCar.save().then(() => {
@@ -173,7 +191,6 @@ app.post('/upload_car', (req, res) => {
         res.status(500).send('Error occurred while uploading car data.');
     });
 });
-
 
 app.get('/result', (req, res) => {
     CarList.find().then(function (cars) {
