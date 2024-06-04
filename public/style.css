@@ -572,3 +572,37 @@ p.copyright {
 .title-section.result { 
     margin-left: 100px;
 }
+
+/* Footer style*/
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #14213D;
+    color: white;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+
+.footer p {
+    padding: 5px 60px;
+    font-size: 22px;
+}
+
+.footer .link {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-decoration: underline;
+    color: white;
+    margin-top: 15px;
+}
+
+p.copyright {
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
