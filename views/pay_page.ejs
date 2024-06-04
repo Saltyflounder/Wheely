@@ -145,7 +145,11 @@
             <div class="booking-info">
                 <h3>Tesla Model 3 2023</h3>
                 <p>Bellevue, WA</p>
-                <img src="../public/img/tesla.png" alt="Tesla Model 3">
+                <% for (let i = 0; i < imageList.length && i < 4; i++) { %>
+                    <% if (imageList[i].car_id === car.car_id) { %>
+                        <img src="<%= imageList[i].image %>" alt="Car Image">
+                        <% } %>
+                    <% } %>
                 <div class="pick-up-return-container">
                     <div class="pick-up-return">
                         <label>Pick Up</label>

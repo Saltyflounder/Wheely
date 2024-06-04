@@ -5,7 +5,7 @@
     <meta name='viewport' content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Junhee Park">
     <meta name="description" content="Main Page of the Wheely">
-    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="icon" type="image/png" href="../public/img/favicon.png" />
     <title>Wheely</title>
     
     <!-- normalize.css for cross-browser stuff -->
@@ -92,13 +92,13 @@
                 <h1>Recommendation</h1>
             </section>
             <section class="column-2">
-                <img id="left-arrow" class="arrow left-arrow" src="./public/img/left-arrow.png" alt="left next">
+                <img id="left-arrow" class="arrow left-arrow" src="../public/img/left-arrow.png" alt="left next">
                 <div class="section-2-container">
                     <!-- Card Loop -->
                     <% for (let i = 0; i < carList.length && i < 6; i++) { %>
                         <div class="card" onClick="location.href='/cars/<%= carList[i].car_id %>'">
                             <i class="fa fa-heart heart-icon"></i>
-                            <img src="<%= carList[i].car_image %>" alt="A picture of car">
+                            <img src="<%= imageList[i].image %>" alt="A picture of car">
                             <p class="vehicle"><%= carList[i].car_model %></p>
                             <p class="rate">★<%= carList[i].car_rating %></p>
                             <p class="location"><%= carList[i].parking_city %>, <%= carList[i].parking_state %></p>

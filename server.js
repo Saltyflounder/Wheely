@@ -59,9 +59,19 @@ const carImgSchema = {
     description: String
 };
 
+const reviewSchema = {
+    review_id: Number,
+    car_id: Number,
+    reviewer_name: String,
+    rating: Number,
+    review_detail: String,
+    week_ago: Number
+};
+
 const CarList = mongoose.model('cars', carSchema);
 const ListingList = mongoose.model('listings', listingSchema);
 const CarImgList = mongoose.model('car_imgs', carImgSchema);
+const ReviewList = mongoose.model('reviews', reviewSchema);
 
 app.get('/', (req, res) => {
     Promise.all([
@@ -77,10 +87,11 @@ app.get('/cars/:id', (req, res) => {
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
         ListingList.find({ car_id: carId }).exec(),
-        CarImgList.find().exec()
-    ]).then(([car, listings, image]) => {
+        CarImgList.find().exec(),
+        ReviewList.find({ car_id: carId }).exec()
+    ]).then(([car, listings, images, reviews]) => {
         if (car) {
-            res.render('detailed_info', { car, ListingList: listings, imageList: image });
+            res.render('detailed_info', { car, ListingList: listings, imageList: images, reviews });
         }
     }).catch(err => {
         console.log(err);
@@ -93,9 +104,9 @@ app.get('/pay/:id', (req, res) => {
         CarList.findOne({ car_id: carId }).exec(),
         ListingList.find({ car_id: carId }).exec(),
         CarImgList.find().exec()
-    ]).then(([car, listings]) => {
+    ]).then(([car, listings, images]) => {
         if (car) {
-            res.render('pay_page', { car, ListingList: listings });
+            res.render('pay_page', { car, ListingList: listings, imageList: images});
         }
     }).catch(err => {
         console.log(err);

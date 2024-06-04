@@ -36,11 +36,16 @@
     <!-- Header Elements with Images -->
     <header>
         <div class="image-grid">
-            <img class="image-grid-col-2 image-grid-row-2" src="../public/img/car-picture.png" alt="architecture">
-            <img src="../public/img/car-picture-1.5.png" alt="car-picture-1.5">
-            <img src="../public/img/car-picture-2.png" alt="car-picture-2">
-            <img src="../public/img/car-picture-3.png" alt="car-picture-3">
-            <img src="../public/img/car-picture-4.png" alt="car-picture-4">
+            <% for (let i = 0; i < imageList.length && i < 4; i++) { %>
+                <% if (imageList[i].car_id === car.car_id) { %>
+                    <img class="image-grid-col-2 image-grid-row-2" src="<%= imageList[i].image %>" alt="architecture">
+                
+                    <img  src="<%= imageList[i].image %>" alt="car-picture-1.5">
+                    <img  src="<%= imageList[i].image %>" alt="car-picture-2">
+                    <img  src="<%= imageList[i].image %>" alt="car-picture-3">
+                    <img  src="<%= imageList[i].image %>" alt="car-picture-4">
+                <% } %>
+            <% } %>
         </div>
     </header>
     <!-- Detailed Car Info Page -->
