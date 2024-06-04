@@ -159,7 +159,7 @@ app.get('/car_upload_page', (req, res) => {
 });
 
 app.post('/upload_car', (req, res) => {
-    const newCar = new CarList({
+    let newCar = new CarList({
         car_id: req.body.car_id,
         parking_street: req.body.parking_street,
         parking_city: req.body.parking_city,
@@ -184,7 +184,6 @@ app.post('/upload_car', (req, res) => {
 
     newCar.save().then(() => {
         res.render('upload_success'), {
-            newCar: new_car
         };
     }).catch(err => {
         console.log(err);
