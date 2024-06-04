@@ -40,10 +40,10 @@
                 <div class="search-container">
                     <div class="search-inputs">
                         <div class="input-group">
-                            <label for="location">Where</label>
-                            <input class="search-input search-field" type="text" placeholder="City, address, hotel, etc." aria-label="Location" id="location">
+                            <label for="location">Location</label>
+                            <input class="search-input search-field" type="text" placeholder="City, State, etc." aria-label="Location" id="location">
                         </div>
-                        <div class="separator"></div>
+                        <!-- <div class="separator"></div>
                         <div class="input-group">
                             <label>From</label>
                             <input class="search-input search-field" type="date" aria-label="Start Date" value="" min="" max="">
@@ -54,12 +54,12 @@
                             <label>Until</label>
                             <input class="search-input search-field" type="date" aria-label="End Date" value="" min="" max="">
                             <input class="search-input search-field" type="time" aria-label="End Time" value="" step="900">
-                        </div>
+                        </div> -->
                         <a href="/result">
                             <button class="search-button" type="submit">Search</button>
                         </a>
                     </div>
-                    <div class="vehicle-icons">
+                    <!-- <div class="vehicle-icons">
                         <input type="radio" name="vehicle" id="sedan" value="sedan">
                         <label for="sedan"><img src="./public/img/sedan.png" alt="Sedan"></label>
                   
@@ -81,7 +81,7 @@
                         <input type="radio" name="vehicle" id="truck" value="truck">
                         <label for="truck"><img src="./public/img/truck.png" alt="Truck"></label>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -97,14 +97,14 @@
                     <!-- Card Loop -->
                     <% for (let i = 0; i < carList.length && i < 6; i++) { %>
                         <div class="card" onClick="location.href='/cars/<%= carList[i].car_id %>'">
-                            <i class="fa fa-heart heart-icon"></i>
+                            <!-- <i class="fa fa-heart heart-icon"></i> -->
                             <img src="<%= imageList[i].image %>" alt="A picture of car">
                             <p class="vehicle"><%= carList[i].car_model %></p>
                             <p class="rate">★<%= carList[i].car_rating %></p>
                             <p class="location"><%= carList[i].parking_city %>, <%= carList[i].parking_state %></p>
                             <p class="price">$<%= carList[i].car_price_per_day %>/day</p>
                             <input type="checkbox" id="heart-btn-<%= i + 1 %>" class="heart-btn">
-                            <label for="heart-btn-<%= i + 1 %>" class="heart-icon"></label>
+                            <!-- <label for="heart-btn-<%= i + 1 %>" class="heart-icon"></label> -->
                         </div>
                     <% } %>
                 </div>
