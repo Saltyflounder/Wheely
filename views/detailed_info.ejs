@@ -30,7 +30,7 @@
         <li><a href="/"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
         <div class="navbar">
             <li class="upload-button"><a href="/car_upload_page">Upload my vehicle</a></li>
-            <li><a href="#">Log-In</a></li>
+            <!-- <li><a href="#">Log-In</a></li> -->
         </div>
     </nav>
     <!-- Header Elements with Images -->
@@ -121,7 +121,7 @@
                         <!-- <a class="centerButton" onClick = "location.href='/pay/car.car_id'">
                             <button class="rent-button">Rent</button>
                         </a> -->
-                        <form class="centerButton" action="/pay/<%= car.car_id %>" method="GET">
+                        <form class="centerButton" action="/pay/<%= car.car_id %>" method="get">
                             <button class="rent-button" type="submit">Rent</button>
                         </form>
                         <div class="group-column">

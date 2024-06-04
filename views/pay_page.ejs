@@ -74,7 +74,7 @@
         <li><a href="/"><img class="logo" src="../public/img/logo+name.png" alt="logo"></a></li>
         <div class="navbar">
             <li class="upload-button"><a href="/car_upload_page">Upload my vehicle</a></li>
-            <li><a href="#">Log-In</a></li>
+            <!-- <li><a href="#">Log-In</a></li> -->
         </div>
     </nav>
 
@@ -143,21 +143,19 @@
         <div class="booking-section">
             <h2>Booking Information</h2>
             <div class="booking-info">
-                <h3>Tesla Model 3 2023</h3>
-                <p>Bellevue, WA</p>
-                <% for (let i = 0; i < imageList.length && i < 4; i++) { %>
-                    <% if (imageList[i].car_id === car.car_id) { %>
-                        <img src="<%= imageList[i].image %>" alt="Car Image">
-                        <% } %>
-                    <% } %>
+                <h3><%= car.car_model %></h3>
+                <p><%= car.parking_city %>, <%= car.parking_state %></p>
+                <% for (let i = 0; i < imageList.length && i < 6; i++) { %>
+                    <img src="<%= imageList[i].image %>" alt="A picture of car">
+                <% } %>
                 <div class="pick-up-return-container">
                     <div class="pick-up-return">
                         <label>Pick Up</label>
                         <label>Return</label>
                     </div>
                     <div class="date-info">
-                        <p class="pick-up-date"><%= ListingList[array_val].date_rented.substr(5)%> 08:00am</p>
-                        <p class="return-date"><%= ListingList[array_val].date_returned.substr(5)%> 04:00PM</p>
+                        <p class="pick-up-date"><%= ListingList[array_val].date_rented.substr(5) %> 08:00am</p>
+                        <p class="return-date"><%= ListingList[array_val].date_returned.substr(5) %> 04:00PM</p>
                     </div>
                 </div>                     
             </div>

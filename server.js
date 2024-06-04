@@ -87,7 +87,7 @@ app.get('/cars/:id', (req, res) => {
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
         ListingList.find({ car_id: carId }).exec(),
-        CarImgList.find().exec(),
+        CarImgList.find({ car_id: carId }).exec(),
         ReviewList.find({ car_id: carId }).exec()
     ]).then(([car, listings, images, reviews]) => {
         if (car) {
@@ -103,10 +103,10 @@ app.get('/pay/:id', (req, res) => {
     Promise.all([
         CarList.findOne({ car_id: carId }).exec(),
         ListingList.find({ car_id: carId }).exec(),
-        CarImgList.find().exec()
-    ]).then(([car, listings, images]) => {
+        CarImgList.find({ car_id: carId }).exec()
+    ]).then(([car, listings, images, cars]) => {
         if (car) {
-            res.render('pay_page', { car, ListingList: listings, imageList: images});
+            res.render('pay_page', { car, ListingList: listings, imageList: images, carList: cars }); // Added carList to the context
         }
     }).catch(err => {
         console.log(err);
@@ -192,11 +192,14 @@ app.post('/upload_car', (req, res) => {
 });
 
 app.get('/result', (req, res) => {
-    CarList.find().then(function (cars) {
-        res.render('result', {
-            carList: cars
+    Promise.all([
+        CarList.findOne({ car_id: carId }).exec(),
+        ListingList.find({ car_id: carId }).exec(),
+        CarImgList.find().exec()
+    ]).then(([cars, images]) => {
+        res.render('result', {carList: cars, ListingList: listings, imageList: images
         });
-    }).catch(function (err) {
+    }).catch(err => {
         console.log(err);
     });
 });
@@ -213,17 +216,22 @@ app.get('/pay_page', (req, res) => {
 
 app.get('/search', (req, res) => {
     const searchQuery = req.query.location;
-    CarList.find({
-        $or: [
-            { parking_city: { $regex: searchQuery, $options: 'i' } },
-            { parking_street: { $regex: searchQuery, $options: 'i' } }
-        ]
-    }).then(function (cars) {
+    
+    Promise.all([
+        CarList.find({
+            $or: [
+                { parking_city: { $regex: searchQuery, $options: 'i' } },
+                { parking_street: { $regex: searchQuery, $options: 'i' } }
+            ]
+        }).exec(),
+        CarImgList.find().exec()
+    ]).then(([cars, images]) => {
         res.render('result', {
             carList: cars,
+            imageList: images,
             query: searchQuery
         });
-    }).catch(function (err) {
+    }).catch(err => {
         console.log(err);
         res.status(500).send('Error occurred during search');
     });

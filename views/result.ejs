@@ -28,7 +28,7 @@
         <li><a href="/"><img class="logo" src= "../public/img/logo+name.png" alt="logo"></a></li>
         <div class="navbar">
             <li class="upload-button"><a href="/car_upload_page">Upload my vehicle</a></li>
-            <li><a href="#">Log-In</a></li>
+            <!-- <li><a href="#">Log-In</a></li> -->
         </div>
     </nav>
     <!-- Header Elements with Searchbar -->
@@ -96,7 +96,9 @@
                             <% if (carList.length > 0) { %>
                                 <% carList.forEach(function(car, index) { %>
                                     <div class="carousel-slide">
-                                        <img src="../public/img/car-picture.png" alt="A picture of car">
+                                            
+                                        <% const carImage = imageList.find(img => img.car_id === car.car_id); %>
+                                        <img src="<%= carImage ? carImage.image : '../public/img/default-car.png' %>" alt="A picture of car">
                                         <div class="card-content" onClick="location.href='/cars/<%= car.car_id %>'">
                                             <p class="vehicle"><%= car.car_model %></p>
                                             <div class="details">
