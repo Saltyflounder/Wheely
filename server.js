@@ -196,13 +196,17 @@ app.post('/upload_car', (req, res) => {
         car_class: req.body.car_class,
         car_fuel_type: req.body.car_fuel_type,
         car_highway_mpg: req.body.car_highway_mpg,
-        car_rating: req.body.car_rating,
         car_image: req.body.car_image // Make sure the image URL is stored
     });
 
-    newCar.save().then(() => {
+    let newListing = new ListingList({
+        pick_up_date: req.body.pick_up_date, 
+        return_date: req.body.return_date, 
+        owner_name: req.body.owner_name
+    });
+    newCar.save().then(() => { newListing.save().then(() => {        
         res.render('upload_success'), {
-        };
+    };})
     }).catch(err => {
         console.log(err);
     });
