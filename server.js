@@ -63,7 +63,7 @@ const reviewSchema = {
     review_id: Number,
     car_id: Number,
     reviewer_name: String,
-    rating: Number,
+    review_star: Number,
     review_detail: String,
     week_ago: Number
 };
