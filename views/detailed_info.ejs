@@ -112,6 +112,12 @@
                 </section>
             </div>
             <!-- purchase card -->
+
+            <% let rented_date = new Date(ListingList[array_val].date_rented); %>
+            <% let return_date = new Date(ListingList[array_val].date_returned); %>
+            <% let difference = (Math.floor((return_date - rented_date) / 86400000)) %>
+            <% if (difference < 1) {difference +=1}; %>
+
             <section class="payment-container">
                 <div class="serviceCard">
                     <div class="cardContent">
@@ -125,8 +131,8 @@
                             <button class="rent-button" type="submit">Rent</button>
                         </form>
                         <div class="group-column">
-                            <p class="cost-day">$<%= car.car_price_per_day%> x 3 days</p>
-                            <p>$<%=car.car_price_per_day * 3%></p>
+                            <p class="cost-day">$<%= car.car_price_per_day%> x <%= difference %> days</p>
+                            <p>$<%=car.car_price_per_day * difference%></p>
                         </div>
                         <div class="group-column">
                             <p class="charge-cost">Charging cost</p>
@@ -135,7 +141,7 @@
                         <hr>
                         <div class="group-column-top">
                             <p class="total-cost">Total</p>
-                            <p>> $<%=car.car_price_per_day * 3%></p>
+                            <p>> $<%=car.car_price_per_day * difference%></p>
                         </div>
                     </div>
                 </div>

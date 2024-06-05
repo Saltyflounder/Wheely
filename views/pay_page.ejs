@@ -134,6 +134,7 @@
             <% } %>
         </div>
 
+        
         <!--Booking Info-->
         <% let array_val = -1; %>
         <% for (let i = 0; i < ListingList.length; i++) { %>
@@ -141,6 +142,12 @@
                 <% array_val = i; %>
             <% } %>
         <% } %>
+
+        <% let rented_date = new Date(ListingList[array_val].date_rented); %>
+        <% let return_date = new Date(ListingList[array_val].date_returned); %>
+        <% let difference = (Math.floor((return_date - rented_date) / 86400000)) %>
+        <% if (difference < 1) {difference +=1}; %>
+
         <div class="booking-section">
             <h2>Booking Information</h2>
             <div class="booking-info">
@@ -164,15 +171,15 @@
                 <h2>Payment Details</h2>
                 <div class="payment-item">
                     <span class="label">Subtotal:</span>
-                    <span class="value">$<%= car.car_price_per_day %> x 3</span>
+                    <span class="value">$<%= car.car_price_per_day %> x <%= difference%></span>
                 </div>
                 <div class="payment-item">
                     <span class="label">Tax:</span>
-                    <span class="value">$0</span>
+                    <span class="value">$ <%= (car.car_price_per_day * difference) * .10 %></span>
                 </div>
                 <div class="payment-item total">
                     <span class="label">Total:</span>
-                    <span class="value">$<%= car.car_price_per_day * 3 %></span>
+                    <span class="value">$<%= (car.car_price_per_day * difference) + ((car.car_price_per_day * difference) * .10) %></span>
                 </div>
             </div>
         </div>
